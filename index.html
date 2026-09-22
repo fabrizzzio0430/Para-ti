@@ -32,35 +32,41 @@ button{
     position:fixed;
     inset:0;
     z-index:10;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     text-align:center;
     color:white;
 
     background:
         radial-gradient(
             circle at 50% 25%,
-            #fff5ad 0px,
-            #ffd86a 90px,
-            transparent 250px
+            #fff6b0 0px,
+            #ffd96a 90px,
+            transparent 260px
         ),
         linear-gradient(
             to bottom,
-            #ffcf55 0%,
-            #ff9d45 35%,
-            #e96551 65%,
-            #713f59 100%
+            #ffd45c 0%,
+            #ff9c48 35%,
+            #e96851 65%,
+            #70425a 100%
         );
 }
 
 .intro{
     width:min(90%,600px);
     padding:35px;
+
     border-radius:30px;
+
     background:rgba(40,20,30,.35);
     backdrop-filter:blur(8px);
-    box-shadow:0 20px 60px rgba(0,0,0,.3);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.3);
 }
 
 .intro .emoji{
@@ -81,18 +87,31 @@ button{
 
 .start{
     margin-top:15px;
+
     padding:16px 30px;
+
     border-radius:50px;
-    background:linear-gradient(135deg,#ff704f,#e84061);
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff704f,
+            #e84061
+        );
+
     color:white;
+
     font-size:18px;
     font-weight:bold;
-    box-shadow:0 8px 20px rgba(0,0,0,.3);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.3);
 }
 
 .start:hover{
     transform:scale(1.05);
 }
+
 
 /* =========================
    JUEGO
@@ -100,17 +119,22 @@ button{
 
 #juego{
     display:none;
+
     position:fixed;
     inset:0;
+
     background:#e8754d;
 }
 
 canvas{
     position:absolute;
+
     inset:0;
+
     width:100%;
     height:100%;
 }
+
 
 /* =========================
    HUD
@@ -118,7 +142,9 @@ canvas{
 
 #hud{
     position:fixed;
+
     z-index:5;
+
     top:15px;
     left:15px;
     right:15px;
@@ -132,22 +158,35 @@ canvas{
 
 .hud{
     padding:10px 16px;
+
     border-radius:20px;
+
     color:white;
-    background:rgba(40,20,30,.55);
+
+    background:
+        rgba(40,20,30,.55);
+
     backdrop-filter:blur(5px);
+
     font-weight:bold;
     font-size:17px;
 }
 
 #music{
     pointer-events:auto;
+
     color:white;
-    background:rgba(40,20,30,.65);
+
+    background:
+        rgba(40,20,30,.65);
+
     padding:10px 15px;
+
     border-radius:20px;
+
     font-weight:bold;
 }
+
 
 /* =========================
    MENSAJE
@@ -155,20 +194,31 @@ canvas{
 
 #mensaje{
     position:fixed;
+
     z-index:6;
+
     top:80px;
     left:50%;
+
     transform:translateX(-50%);
 
     color:white;
-    background:rgba(40,20,30,.7);
+
+    background:
+        rgba(40,20,30,.7);
+
     padding:12px 22px;
+
     border-radius:20px;
 
     opacity:0;
+
     transition:.3s;
+
     pointer-events:none;
+
     text-align:center;
+
     font-weight:bold;
 }
 
@@ -176,19 +226,25 @@ canvas{
     opacity:1;
 }
 
+
 /* =========================
    CONTROLES
 ========================= */
 
 #controles{
     position:fixed;
+
     z-index:7;
+
     bottom:20px;
+
     left:0;
     right:0;
 
     display:flex;
+
     justify-content:space-between;
+
     padding:0 20px;
 
     pointer-events:none;
@@ -202,15 +258,20 @@ canvas{
 .control{
     width:65px;
     height:65px;
+
     border-radius:50%;
 
-    background:rgba(35,20,30,.6);
+    background:
+        rgba(35,20,30,.6);
+
     color:white;
 
     font-size:27px;
     font-weight:bold;
 
-    border:2px solid rgba(255,255,255,.4);
+    border:
+        2px solid
+        rgba(255,255,255,.4);
 
     pointer-events:auto;
 }
@@ -220,10 +281,13 @@ canvas{
 }
 
 @media(min-width:800px){
+
     #controles{
         display:none;
     }
+
 }
+
 
 /* =========================
    FINAL
@@ -231,12 +295,16 @@ canvas{
 
 #final{
     display:none;
+
     position:fixed;
+
     inset:0;
+
     z-index:20;
 
     justify-content:center;
     align-items:center;
+
     text-align:center;
 
     color:white;
@@ -258,53 +326,76 @@ canvas{
 
 .finalCard{
     width:min(90%,650px);
+
     padding:35px;
+
     border-radius:30px;
 
-    background:rgba(40,20,30,.38);
+    background:
+        rgba(40,20,30,.38);
+
     backdrop-filter:blur(10px);
 
-    box-shadow:0 20px 60px rgba(0,0,0,.35);
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.35);
 }
 
 .finalCard h1{
-    font-size:clamp(35px,7vw,60px);
+    font-size:
+        clamp(35px,7vw,60px);
+
     margin-bottom:18px;
 }
 
 .finalCard p{
     font-size:18px;
+
     line-height:1.7;
+
     margin-bottom:15px;
 }
 
 .floresFinal{
     font-size:43px;
+
     line-height:1.5;
+
     margin:20px 0;
 }
 
 .firma{
     font-style:italic;
+
     margin-top:20px;
 }
 
 .petalo{
     position:absolute;
+
     top:-40px;
+
     font-size:25px;
-    animation:caer linear forwards;
+
+    animation:
+        caer linear forwards;
 }
 
 @keyframes caer{
+
     to{
-        transform:translateY(110vh) rotate(720deg);
+
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
     }
+
 }
 </style>
 </head>
 
 <body>
+
 
 <!-- =========================
      INICIO
@@ -314,21 +405,31 @@ canvas{
 
     <div class="intro">
 
-        <div class="emoji">🌅</div>
+        <div class="emoji">
+            🌅
+        </div>
 
-        <h1>Tengo algo para ti...</h1>
+        <h1>
+            Tengo algo para ti...
+        </h1>
 
         <p>
-            Hay una pequeña aventura esperándote.
+            Hay una pequeña aventura
+            esperándote.
         </p>
 
         <p>
-            Recoge las 7 flores, evita los caracoles
+            Recoge las 7 flores,
+            evita los caracoles
             y llega hasta la bandera. 🌻
         </p>
 
-        <button class="start" onclick="iniciarJuego()">
+        <button
+            class="start"
+            onclick="iniciarJuego()">
+
             Comenzar aventura ✨
+
         </button>
 
     </div>
@@ -344,23 +445,29 @@ canvas{
 
     <canvas id="canvas"></canvas>
 
+
     <div id="hud">
 
         <div class="hud">
+
             🌻 Flores:
-            <span id="flores">0</span>/7
+            <span id="flores">
+                0
+            </span>/7
+
         </div>
 
-        <div class="hud">
-            ❤️ Vidas:
-            <span id="vidas">3</span>
-        </div>
 
-        <button id="music" onclick="musicaToggle()">
+        <button
+            id="music"
+            onclick="musicaToggle()">
+
             🎵 Música ON
+
         </button>
 
     </div>
+
 
     <div id="mensaje"></div>
 
@@ -372,23 +479,31 @@ canvas{
             <button
                 class="control"
                 id="izquierda">
+
                 ◀
+
             </button>
+
 
             <button
                 class="control"
                 id="derecha">
+
                 ▶
+
             </button>
 
         </div>
+
 
         <div class="grupo">
 
             <button
                 class="control"
                 id="saltar">
+
                 ⬆
+
             </button>
 
         </div>
@@ -406,31 +521,49 @@ canvas{
 
     <div class="finalCard">
 
-        <h1>💗 Lo lograste 💗</h1>
+        <h1>
+            💗 Lo lograste 💗
+        </h1>
+
 
         <p>
+
             Recogiste todas las flores,
             superaste todos los obstáculos
             y llegaste hasta el final.
+
         </p>
+
 
         <div class="floresFinal">
-            🌻 🌷 🌼 🌹 🌻 🌷 🌼
+
+            🌻 🌷 🌼 🌹
+            🌻 🌷 🌼
+
         </div>
 
-        <p>
-            Espero que esta pequeña aventura
-            te haya sacado una sonrisa.
-        </p>
 
         <p>
+
+            Espero que esta pequeña aventura
+            te haya sacado una sonrisa.
+
+        </p>
+
+
+        <p>
+
             <strong>
                 Esto es para ti. ❤️
             </strong>
+
         </p>
 
+
         <div class="firma">
+
             — Fabrizzio Zúñiga
+
         </div>
 
     </div>
@@ -450,20 +583,33 @@ const canvas =
 const ctx =
     canvas.getContext("2d");
 
-let W = window.innerWidth;
-let H = window.innerHeight;
+
+let W =
+    window.innerWidth;
+
+let H =
+    window.innerHeight;
+
 
 function ajustarCanvas(){
 
-    W = window.innerWidth;
-    H = window.innerHeight;
+    W =
+        window.innerWidth;
 
-    canvas.width = W;
-    canvas.height = H;
+    H =
+        window.innerHeight;
+
+    canvas.width =
+        W;
+
+    canvas.height =
+        H;
 
 }
 
+
 ajustarCanvas();
+
 
 window.addEventListener(
     "resize",
@@ -475,39 +621,50 @@ window.addEventListener(
    VARIABLES
 ===================================================== */
 
-const mundoAncho = 5200;
+const mundoAncho =
+    5200;
 
-let camara = 0;
 
-let jugando = false;
+let camara =
+    0;
 
-let flores = 0;
-let vidas = 3;
 
-let mensajeTimer = null;
+let jugando =
+    false;
+
+
+let flores =
+    0;
+
+
+let mensajeTimer;
 
 
 /* =====================================================
-   JUGADOR
+   JUGADORA
 ===================================================== */
 
-const jugador = {
+const jugadora = {
 
     x:120,
+
     y:0,
 
     w:42,
+
     h:55,
 
     vx:0,
+
     vy:0,
 
     velocidad:5.5,
+
     salto:14,
 
     suelo:false,
 
-    invulnerable:false
+    empujada:false
 
 };
 
@@ -519,6 +676,7 @@ const jugador = {
 const teclas = {
 
     izquierda:false,
+
     derecha:false
 
 };
@@ -556,7 +714,7 @@ document.addEventListener(
 
             e.preventDefault();
 
-            saltarJugador();
+            saltarJugadora();
 
         }
 
@@ -603,9 +761,10 @@ function botonMovimiento(
     const boton =
         document.getElementById(id);
 
+
     boton.addEventListener(
         "pointerdown",
-        e=>{
+        function(e){
 
             e.preventDefault();
 
@@ -614,9 +773,10 @@ function botonMovimiento(
         }
     );
 
+
     boton.addEventListener(
         "pointerup",
-        e=>{
+        function(e){
 
             e.preventDefault();
 
@@ -625,17 +785,23 @@ function botonMovimiento(
         }
     );
 
+
     boton.addEventListener(
         "pointercancel",
-        ()=>{
+        function(){
+
             teclas[propiedad]=false;
+
         }
     );
 
+
     boton.addEventListener(
         "pointerleave",
-        ()=>{
+        function(){
+
             teclas[propiedad]=false;
+
         }
     );
 
@@ -646,6 +812,7 @@ botonMovimiento(
     "izquierda",
     "izquierda"
 );
+
 
 botonMovimiento(
     "derecha",
@@ -661,7 +828,7 @@ document
 
         e.preventDefault();
 
-        saltarJugador();
+        saltarJugadora();
 
     }
 );
@@ -669,88 +836,79 @@ document
 
 /* =====================================================
    PLATAFORMAS
+   AHORA ESTÁN MÁS ARRIBA
 ===================================================== */
 
 const plataformas = [
 
     {
         x:500,
-        y:0,
         w:230,
         h:25,
-        altura:250
+        altura:330
     },
 
     {
         x:900,
-        y:0,
         w:230,
         h:25,
-        altura:360
+        altura:450
     },
 
     {
         x:1300,
-        y:0,
         w:260,
         h:25,
-        altura:230
+        altura:300
     },
 
     {
         x:1750,
-        y:0,
         w:240,
         h:25,
-        altura:340
+        altura:430
     },
 
     {
         x:2200,
-        y:0,
         w:250,
         h:25,
-        altura:260
+        altura:350
     },
 
     {
         x:2650,
-        y:0,
         w:240,
         h:25,
-        altura:380
+        altura:470
     },
 
     {
         x:3100,
-        y:0,
         w:250,
         h:25,
-        altura:250
+        altura:330
     },
 
     {
         x:3550,
-        y:0,
         w:240,
         h:25,
-        altura:360
+        altura:450
     },
 
     {
         x:4000,
-        y:0,
         w:260,
         h:25,
-        altura:240
+        altura:320
     },
 
     {
         x:4400,
-        y:0,
         w:240,
         h:25,
-        altura:350
+        altura:440
     }
 
 ];
@@ -765,50 +923,53 @@ const floresJuego = [
     {
         x:350,
         plataforma:false,
-        emoji:"🌻"
+        emoji:"🌻",
+        recogida:false
     },
 
     {
         x:580,
         plataforma:0,
-        emoji:"🌷"
+        emoji:"🌷",
+        recogida:false
     },
 
     {
         x:970,
         plataforma:1,
-        emoji:"🌼"
+        emoji:"🌼",
+        recogida:false
     },
 
     {
         x:1400,
         plataforma:2,
-        emoji:"🌹"
+        emoji:"🌹",
+        recogida:false
     },
 
     {
         x:1810,
         plataforma:3,
-        emoji:"🌻"
+        emoji:"🌻",
+        recogida:false
     },
 
     {
         x:2260,
         plataforma:4,
-        emoji:"🌷"
+        emoji:"🌷",
+        recogida:false
     },
 
     {
         x:2750,
         plataforma:5,
-        emoji:"🌼"
+        emoji:"🌼",
+        recogida:false
     }
 
 ];
-
-floresJuego.forEach(
-    f=>f.recogida=false
-);
 
 
 /* =====================================================
@@ -884,15 +1045,13 @@ const meta = {
 
     x:4900,
 
-    w:80,
-
-    y:0
+    w:80
 
 };
 
 
 /* =====================================================
-   INICIO
+   INICIO DEL JUEGO
 ===================================================== */
 
 function iniciarJuego(){
@@ -901,22 +1060,21 @@ function iniciarJuego(){
     .getElementById("inicio")
     .style.display="none";
 
+
     document
     .getElementById("juego")
     .style.display="block";
 
+
     jugando=true;
 
+
     flores=0;
-    vidas=3;
+
 
     document
     .getElementById("flores")
     .textContent="0";
-
-    document
-    .getElementById("vidas")
-    .textContent="3";
 
 
     floresJuego.forEach(
@@ -924,17 +1082,27 @@ function iniciarJuego(){
     );
 
 
-    jugador.x=120;
+    jugadora.x=120;
 
-    jugador.y=
-        H-120-jugador.h;
 
-    jugador.vx=0;
-    jugador.vy=0;
+    jugadora.y=
+        H-120-jugadora.h;
 
-    jugador.suelo=true;
+
+    jugadora.vx=0;
+
+    jugadora.vy=0;
+
+    jugadora.suelo=true;
+
+
+    /*
+     La música comienza
+     con el clic del botón.
+    */
 
     iniciarMusica();
+
 
     requestAnimationFrame(
         bucle
@@ -947,17 +1115,17 @@ function iniciarJuego(){
    SALTO
 ===================================================== */
 
-function saltarJugador(){
+function saltarJugadora(){
 
     if(
         jugando &&
-        jugador.suelo
+        jugadora.suelo
     ){
 
-        jugador.vy=
-            -jugador.salto;
+        jugadora.vy=
+            -jugadora.salto;
 
-        jugador.suelo=false;
+        jugadora.suelo=false;
 
     }
 
@@ -968,15 +1136,15 @@ function saltarJugador(){
    FÍSICA
 ===================================================== */
 
-function actualizarJugador(){
+function actualizarJugadora(){
 
     if(
         teclas.izquierda &&
         !teclas.derecha
     ){
 
-        jugador.vx=
-            -jugador.velocidad;
+        jugadora.vx=
+            -jugadora.velocidad;
 
     }
     else if(
@@ -984,72 +1152,82 @@ function actualizarJugador(){
         !teclas.izquierda
     ){
 
-        jugador.vx=
-            jugador.velocidad;
+        jugadora.vx=
+            jugadora.velocidad;
 
     }
     else{
 
-        jugador.vx*=.78;
+        jugadora.vx*=.78;
 
     }
 
 
     const anteriorY=
-        jugador.y;
+        jugadora.y;
 
 
-    jugador.x+=
-        jugador.vx;
+    jugadora.x+=
+        jugadora.vx;
 
 
-    jugador.vy+=.65;
+    jugadora.vy+=.65;
 
-    jugador.y+=
-        jugador.vy;
+    jugadora.y+=
+        jugadora.vy;
 
-
-    if(jugador.x<0)
-        jugador.x=0;
 
     if(
-        jugador.x>
-        mundoAncho-jugador.w
+        jugadora.x<0
     ){
 
-        jugador.x=
-            mundoAncho-jugador.w;
+        jugadora.x=0;
 
     }
 
 
-    jugador.suelo=false;
+    if(
+        jugadora.x>
+        mundoAncho-jugadora.w
+    ){
+
+        jugadora.x=
+            mundoAncho-jugadora.w;
+
+    }
 
 
-    /* SUELO */
+    jugadora.suelo=false;
+
+
+    /*
+     SUELO
+    */
 
     const sueloY=
         H-120;
 
 
     if(
-        jugador.y+
-        jugador.h>=
+        jugadora.y+
+        jugadora.h>=
         sueloY &&
-        jugador.vy>=0
+        jugadora.vy>=0
     ){
 
-        jugador.y=
-            sueloY-jugador.h;
+        jugadora.y=
+            sueloY-jugadora.h;
 
-        jugador.vy=0;
+        jugadora.vy=0;
 
-        jugador.suelo=true;
+        jugadora.suelo=true;
 
     }
 
 
-    /* PLATAFORMAS */
+    /*
+     PLATAFORMAS
+    */
 
     for(
         const p of plataformas
@@ -1058,48 +1236,61 @@ function actualizarJugador(){
         const py=
             H-120-p.altura;
 
+
         const anteriorAbajo=
             anteriorY+
-            jugador.h;
+            jugadora.h;
+
 
         const abajo=
-            jugador.y+
-            jugador.h;
+            jugadora.y+
+            jugadora.h;
 
 
         const horizontal=
-            jugador.x+
-            jugador.w>
+            jugadora.x+
+            jugadora.w>
             p.x &&
-            jugador.x<
+
+            jugadora.x<
             p.x+p.w;
 
 
         if(
             horizontal &&
-            jugador.vy>=0 &&
+            jugadora.vy>=0 &&
             anteriorAbajo<=py &&
             abajo>=py
         ){
 
-            jugador.y=
-                py-jugador.h;
+            jugadora.y=
+                py-jugadora.h;
 
-            jugador.vy=0;
+            jugadora.vy=0;
 
-            jugador.suelo=true;
+            jugadora.suelo=true;
 
         }
 
     }
 
 
+    /*
+     Si cae demasiado,
+     vuelve al inicio.
+    */
+
     if(
-        jugador.y>
+        jugadora.y>
         H+200
     ){
 
-        perderVida();
+        jugadora.x=120;
+
+        jugadora.y=
+            H-120-jugadora.h;
+
+        jugadora.vy=0;
 
     }
 
@@ -1117,8 +1308,7 @@ function actualizarCaracoles(){
     ){
 
         /*
-         AQUÍ SE MUEVEN REALMENTE
-         DE IZQUIERDA A DERECHA.
+         Movimiento constante.
         */
 
         c.x+=
@@ -1149,34 +1339,67 @@ function actualizarCaracoles(){
 
 
         /*
-         Colisión con jugador.
+         Ya NO quitan vidas.
+         Solo empujan ligeramente
+         a la jugadora hacia atrás.
         */
 
+        const caracolY=
+            H-120-45;
+
+
         if(
-            !jugador.invulnerable
+
+            jugadora.x+
+            jugadora.w>
+            c.x+5 &&
+
+            jugadora.x<
+            c.x+45 &&
+
+            jugadora.y+
+            jugadora.h>
+            caracolY+5 &&
+
+            jugadora.y<
+            caracolY+45
+
         ){
 
-            const caracolY=
-                H-120-45;
+            if(!jugadora.empujada){
+
+                jugadora.empujada=true;
 
 
-            if(
-                jugador.x+
-                jugador.w>
-                c.x+5 &&
+                /*
+                 Empujón pequeño.
+                */
 
-                jugador.x<
-                c.x+45 &&
+                if(
+                    c.direccion>0
+                ){
 
-                jugador.y+
-                jugador.h>
-                caracolY+5 &&
+                    jugadora.vx=-7;
 
-                jugador.y<
-                caracolY+45
-            ){
+                }
+                else{
 
-                perderVida();
+                    jugadora.vx=7;
+
+                }
+
+
+                mostrarMensaje(
+                    "🐌 ¡Cuidado con el caracol!"
+                );
+
+
+                setTimeout(
+                    ()=>{
+                        jugadora.empujada=false;
+                    },
+                    500
+                );
 
             }
 
@@ -1188,7 +1411,7 @@ function actualizarCaracoles(){
 
 
 /* =====================================================
-   FLORES
+   ALTURA DE FLORES
 ===================================================== */
 
 function obtenerYFlor(flor){
@@ -1207,10 +1430,18 @@ function obtenerYFlor(flor){
             flor.plataforma
         ];
 
-    return H-120-p.altura-48;
+
+    return H-
+        120-
+        p.altura-
+        48;
 
 }
 
+
+/* =====================================================
+   FLORES
+===================================================== */
 
 function actualizarFlores(){
 
@@ -1218,7 +1449,9 @@ function actualizarFlores(){
         const f of floresJuego
     ){
 
-        if(f.recogida)
+        if(
+            f.recogida
+        )
             continue;
 
 
@@ -1227,181 +1460,48 @@ function actualizarFlores(){
 
 
         if(
-            jugador.x+
-            jugador.w>
+
+            jugadora.x+
+            jugadora.w>
             f.x &&
 
-            jugador.x<
+            jugadora.x<
             f.x+45 &&
 
-            jugador.y+
-            jugador.h>
+            jugadora.y+
+            jugadora.h>
             fy &&
 
-            jugador.y<
+            jugadora.y<
             fy+45
+
         ){
 
             f.recogida=true;
 
             flores++;
 
+
             document
             .getElementById("flores")
-            .textContent=flores;
+            .textContent=
+                flores;
 
 
             mostrarMensaje(
-                "🌻 ¡Encontraste una flor!"
+                "🌻 ¡Flor encontrada!"
             );
 
 
-            if(flores===7){
+            if(
+                flores===7
+            ){
 
                 mostrarMensaje(
-                    "✨ ¡Tienes todas! Ahora ve a la bandera."
+                    "✨ ¡Tienes todas las flores! Ve a la bandera."
                 );
 
             }
-
-        }
-
-    }
-
-}
-
-
-/* =====================================================
-   VIDAS
-===================================================== */
-
-function perderVida(){
-
-    if(
-        jugador.invulnerable ||
-        !jugando
-    )
-        return;
-
-
-    vidas--;
-
-    document
-    .getElementById("vidas")
-    .textContent=vidas;
-
-
-    if(vidas<=0){
-
-        mostrarMensaje(
-            "💔 Se acabaron las vidas..."
-        );
-
-
-        setTimeout(
-            reiniciarPartida,
-            1000
-        );
-
-        return;
-
-    }
-
-
-    jugador.invulnerable=true;
-
-
-    mostrarMensaje(
-        "🐌 ¡Cuidado! Perdiste una vida."
-    );
-
-
-    jugador.x=120;
-
-    jugador.y=
-        H-120-jugador.h;
-
-    jugador.vx=0;
-
-    jugador.vy=0;
-
-
-    setTimeout(
-        ()=>{
-            jugador.invulnerable=false;
-        },
-        1600
-    );
-
-}
-
-
-/* =====================================================
-   REINICIAR
-===================================================== */
-
-function reiniciarPartida(){
-
-    vidas=3;
-
-    flores=0;
-
-    document
-    .getElementById("vidas")
-    .textContent="3";
-
-    document
-    .getElementById("flores")
-    .textContent="0";
-
-
-    floresJuego.forEach(
-        f=>f.recogida=false
-    );
-
-
-    jugador.x=120;
-
-    jugador.y=
-        H-120-jugador.h;
-
-    jugador.vx=0;
-
-    jugador.vy=0;
-
-    jugador.invulnerable=false;
-
-}
-
-
-/* =====================================================
-   META
-===================================================== */
-
-function comprobarMeta(){
-
-    if(
-        jugador.x+
-        jugador.w>
-        meta.x &&
-
-        jugador.x<
-        meta.x+
-        meta.w
-    ){
-
-        if(
-            flores===7
-        ){
-
-            terminarJuego();
-
-        }
-        else{
-
-            mostrarMensaje(
-                "🌻 Necesitas recoger las 7 flores."
-            );
 
         }
 
@@ -1417,11 +1517,13 @@ function comprobarMeta(){
 function actualizarCamara(){
 
     camara=
-        jugador.x-
+        jugadora.x-
         W*.4;
 
 
-    if(camara<0)
+    if(
+        camara<0
+    )
         camara=0;
 
 
@@ -1429,20 +1531,22 @@ function actualizarCamara(){
         mundoAncho-W;
 
 
-    if(camara>max)
+    if(
+        camara>max
+    )
         camara=max;
 
 }
 
 
 /* =====================================================
-   DIBUJAR ATARDECER
+   FONDO DEL ATARDECER
 ===================================================== */
 
 function dibujarFondo(){
 
     /*
-     ESTE ES EL ATARDECER.
+     CIELO
     */
 
     const gradiente=
@@ -1456,32 +1560,37 @@ function dibujarFondo(){
 
     gradiente.addColorStop(
         0,
-        "#ffd45c"
+        "#ffd95a"
     );
 
-    gradiente.addColorStop(
-        .28,
-        "#ff9b48"
-    );
 
     gradiente.addColorStop(
-        .55,
-        "#e96a50"
+        .25,
+        "#ffad45"
     );
 
+
     gradiente.addColorStop(
-        .78,
-        "#a94f58"
+        .48,
+        "#ef7650"
     );
+
+
+    gradiente.addColorStop(
+        .70,
+        "#bb5260"
+    );
+
 
     gradiente.addColorStop(
         1,
-        "#4b4e3c"
+        "#4d4c3d"
     );
 
 
     ctx.fillStyle=
         gradiente;
+
 
     ctx.fillRect(
         0,
@@ -1492,14 +1601,15 @@ function dibujarFondo(){
 
 
     /*
-     SOL GRANDE.
+     SOL
     */
 
     const solX=
-        W*.72;
+        W*.73;
+
 
     const solY=
-        H*.27;
+        H*.30;
 
 
     const brillo=
@@ -1509,19 +1619,21 @@ function dibujarFondo(){
             20,
             solX,
             solY,
-            150
+            180
         );
 
 
     brillo.addColorStop(
         0,
-        "rgba(255,248,190,.9)"
+        "rgba(255,249,190,.95)"
     );
 
+
     brillo.addColorStop(
-        .45,
-        "rgba(255,220,110,.4)"
+        .4,
+        "rgba(255,221,110,.45)"
     );
+
 
     brillo.addColorStop(
         1,
@@ -1532,74 +1644,83 @@ function dibujarFondo(){
     ctx.fillStyle=
         brillo;
 
+
     ctx.fillRect(
-        solX-150,
-        solY-150,
-        300,
-        300
+        solX-180,
+        solY-180,
+        360,
+        360
     );
 
 
     ctx.fillStyle=
-        "#fff1a0";
+        "#fff2a1";
+
 
     ctx.beginPath();
+
 
     ctx.arc(
         solX,
         solY,
-        55,
+        58,
         0,
         Math.PI*2
     );
+
 
     ctx.fill();
 
 
     /*
-     MONTAÑAS.
+     MONTAÑAS
     */
 
     dibujarMontana(
-        100-camara*.15,
+        50-camara*.12,
         H-120,
-        450,
+        500,
         280
     );
 
-    dibujarMontana(
-        650-camara*.15,
-        H-120,
-        500,
-        320
-    );
 
     dibujarMontana(
-        1250-camara*.15,
+        650-camara*.12,
+        H-120,
+        600,
+        330
+    );
+
+
+    dibujarMontana(
+        1400-camara*.12,
         H-120,
         550,
         300
     );
 
-    dibujarMontana(
-        1900-camara*.15,
-        H-120,
-        500,
-        320
-    );
 
     dibujarMontana(
-        2700-camara*.15,
+        2100-camara*.12,
         H-120,
         600,
+        340
+    );
+
+
+    dibujarMontana(
+        2900-camara*.12,
+        H-120,
+        550,
         300
     );
 
+
     dibujarMontana(
-        3500-camara*.15,
+        3700-camara*.12,
         H-120,
-        500,
-        320
+        600,
+        340
     );
 
 }
@@ -1613,37 +1734,44 @@ function dibujarMontana(
 ){
 
     ctx.fillStyle=
-        "rgba(75,60,70,.45)";
+        "rgba(76,57,68,.43)";
 
 
     ctx.beginPath();
+
 
     ctx.moveTo(
         x,
         base
     );
 
+
     ctx.lineTo(
         x+ancho*.45,
         base-alto
     );
+
 
     ctx.lineTo(
         x+ancho*.62,
         base-alto*.55
     );
 
+
     ctx.lineTo(
         x+ancho*.78,
         base-alto*.8
     );
+
 
     ctx.lineTo(
         x+ancho,
         base
     );
 
+
     ctx.closePath();
+
 
     ctx.fill();
 
@@ -1651,7 +1779,7 @@ function dibujarMontana(
 
 
 /* =====================================================
-   DIBUJAR SUELO
+   SUELO
 ===================================================== */
 
 function dibujarSuelo(){
@@ -1661,7 +1789,8 @@ function dibujarSuelo(){
 
 
     ctx.fillStyle=
-        "#667142";
+        "#687344";
+
 
     ctx.fillRect(
         0,
@@ -1672,7 +1801,8 @@ function dibujarSuelo(){
 
 
     ctx.fillStyle=
-        "#89904d";
+        "#92944f";
+
 
     ctx.fillRect(
         0,
@@ -1683,11 +1813,12 @@ function dibujarSuelo(){
 
 
     /*
-     Hierba.
+     Pasto.
     */
 
     ctx.strokeStyle=
-        "#798448";
+        "#7b8648";
+
 
     ctx.lineWidth=3;
 
@@ -1700,15 +1831,18 @@ function dibujarSuelo(){
 
         ctx.beginPath();
 
+
         ctx.moveTo(
             x,
             sueloY
         );
 
+
         ctx.lineTo(
             x+5,
             sueloY-10
         );
+
 
         ctx.stroke();
 
@@ -1718,7 +1852,7 @@ function dibujarSuelo(){
 
 
 /* =====================================================
-   DIBUJAR PLATAFORMAS
+   PLATAFORMAS
 ===================================================== */
 
 function dibujarPlataformas(){
@@ -1730,13 +1864,10 @@ function dibujarPlataformas(){
         const x=
             p.x-camara;
 
+
         const y=
             H-120-p.altura;
 
-
-        /*
-         Solo dibujar si está en pantalla.
-        */
 
         if(
             x+p.w<0 ||
@@ -1745,8 +1876,13 @@ function dibujarPlataformas(){
             continue;
 
 
+        /*
+         Tierra.
+        */
+
         ctx.fillStyle=
             "#765238";
+
 
         ctx.fillRect(
             x,
@@ -1756,8 +1892,13 @@ function dibujarPlataformas(){
         );
 
 
+        /*
+         Parte superior.
+        */
+
         ctx.fillStyle=
-            "#9b8749";
+            "#9e8b4b";
+
 
         ctx.fillRect(
             x,
@@ -1768,11 +1909,12 @@ function dibujarPlataformas(){
 
 
         /*
-         Hierba encima.
+         Hierba.
         */
 
         ctx.fillStyle=
-            "#718048";
+            "#74834a";
+
 
         ctx.fillRect(
             x,
@@ -1787,7 +1929,7 @@ function dibujarPlataformas(){
 
 
 /* =====================================================
-   DIBUJAR FLORES
+   FLORES
 ===================================================== */
 
 function dibujarFlores(){
@@ -1796,12 +1938,15 @@ function dibujarFlores(){
         const f of floresJuego
     ){
 
-        if(f.recogida)
+        if(
+            f.recogida
+        )
             continue;
 
 
         const x=
             f.x-camara;
+
 
         const y=
             obtenerYFlor(f);
@@ -1814,10 +1959,6 @@ function dibujarFlores(){
             continue;
 
 
-        /*
-         Movimiento suave.
-        */
-
         const flotacion=
             Math.sin(
                 Date.now()/300+
@@ -1828,8 +1969,10 @@ function dibujarFlores(){
         ctx.font=
             "38px Arial";
 
+
         ctx.textAlign=
             "center";
+
 
         ctx.fillText(
             f.emoji,
@@ -1843,7 +1986,7 @@ function dibujarFlores(){
 
 
 /* =====================================================
-   DIBUJAR CARACOLES
+   CARACOLES
 ===================================================== */
 
 function dibujarCaracoles(){
@@ -1854,6 +1997,7 @@ function dibujarCaracoles(){
 
         const x=
             c.x-camara;
+
 
         const y=
             H-120-45;
@@ -1867,13 +2011,15 @@ function dibujarCaracoles(){
 
 
         /*
-         SOMBRA.
+         Sombra.
         */
 
         ctx.fillStyle=
             "rgba(0,0,0,.2)";
 
+
         ctx.beginPath();
+
 
         ctx.ellipse(
             x+25,
@@ -1885,6 +2031,7 @@ function dibujarCaracoles(){
             Math.PI*2
         );
 
+
         ctx.fill();
 
 
@@ -1895,11 +2042,13 @@ function dibujarCaracoles(){
         ctx.font=
             "42px Arial";
 
+
         ctx.textAlign=
             "center";
 
 
         ctx.save();
+
 
         ctx.translate(
             x+25,
@@ -1907,7 +2056,9 @@ function dibujarCaracoles(){
         );
 
 
-        if(c.direccion<0){
+        if(
+            c.direccion<0
+        ){
 
             ctx.scale(
                 -1,
@@ -1932,16 +2083,17 @@ function dibujarCaracoles(){
 
 
 /* =====================================================
-   DIBUJAR JUGADOR
+   DIBUJAR CHICA
 ===================================================== */
 
-function dibujarJugador(){
+function dibujarJugadora(){
 
     const x=
-        jugador.x-camara;
+        jugadora.x-camara;
+
 
     const y=
-        jugador.y;
+        jugadora.y;
 
 
     /*
@@ -1951,7 +2103,9 @@ function dibujarJugador(){
     ctx.fillStyle=
         "rgba(0,0,0,.2)";
 
+
     ctx.beginPath();
+
 
     ctx.ellipse(
         x+21,
@@ -1963,15 +2117,20 @@ function dibujarJugador(){
         Math.PI*2
     );
 
+
     ctx.fill();
 
 
     /*
-     Personaje.
+     CHICA 👩
+     
+     Usamos una chica como personaje
+     en lugar del astronauta.
     */
 
     ctx.font=
-        "46px Arial";
+        "47px Arial";
+
 
     ctx.textAlign=
         "center";
@@ -1981,7 +2140,7 @@ function dibujarJugador(){
 
 
     if(
-        jugador.vx<0
+        jugadora.vx<0
     ){
 
         ctx.scale(
@@ -1989,8 +2148,9 @@ function dibujarJugador(){
             1
         );
 
+
         ctx.fillText(
-            "🧑‍🚀",
+            "👩",
             -x-21,
             y+45
         );
@@ -1999,7 +2159,7 @@ function dibujarJugador(){
     else{
 
         ctx.fillText(
-            "🧑‍🚀",
+            "👩",
             x+21,
             y+45
         );
@@ -2013,13 +2173,14 @@ function dibujarJugador(){
 
 
 /* =====================================================
-   DIBUJAR META
+   META
 ===================================================== */
 
 function dibujarMeta(){
 
     const x=
         meta.x-camara;
+
 
     const sueloY=
         H-120;
@@ -2032,12 +2193,9 @@ function dibujarMeta(){
         return;
 
 
-    /*
-     Poste.
-    */
-
     ctx.fillStyle=
         "#eeeeee";
+
 
     ctx.fillRect(
         x+20,
@@ -2047,15 +2205,13 @@ function dibujarMeta(){
     );
 
 
-    /*
-     Bandera.
-    */
-
     ctx.font=
         "48px Arial";
 
+
     ctx.textAlign=
         "left";
+
 
     ctx.fillText(
         "🏁",
@@ -2067,8 +2223,10 @@ function dibujarMeta(){
     ctx.font=
         "bold 16px Arial";
 
+
     ctx.fillStyle=
         "white";
+
 
     ctx.fillText(
         "META",
@@ -2097,13 +2255,13 @@ function dibujar(){
 
     dibujarMeta();
 
-    dibujarJugador();
+    dibujarJugadora();
 
 }
 
 
 /* =====================================================
-   MENSAJES
+   MENSAJE
 ===================================================== */
 
 function mostrarMensaje(texto){
@@ -2116,6 +2274,7 @@ function mostrarMensaje(texto){
 
     elemento.textContent=
         texto;
+
 
     elemento.classList.add(
         "visible"
@@ -2141,12 +2300,51 @@ function mostrarMensaje(texto){
 
 
 /* =====================================================
+   META
+===================================================== */
+
+function comprobarMeta(){
+
+    if(
+
+        jugadora.x+
+        jugadora.w>
+        meta.x &&
+
+        jugadora.x<
+        meta.x+
+        meta.w
+
+    ){
+
+        if(
+            flores===7
+        ){
+
+            terminarJuego();
+
+        }
+        else{
+
+            mostrarMensaje(
+                "🌻 Primero recoge las 7 flores."
+            );
+
+        }
+
+    }
+
+}
+
+
+/* =====================================================
    FINAL
 ===================================================== */
 
 function terminarJuego(){
 
     jugando=false;
+
 
     document
     .getElementById("final")
@@ -2181,7 +2379,8 @@ function crearPetalos(){
             );
 
 
-        p.className="petalo";
+        p.className=
+            "petalo";
 
 
         p.textContent=
@@ -2194,7 +2393,8 @@ function crearPetalos(){
 
 
         p.style.left=
-            Math.random()*100+"%";
+            Math.random()*100+
+            "%";
 
 
         p.style.animationDuration=
@@ -2218,7 +2418,7 @@ function crearPetalos(){
 
 
 /* =====================================================
-   MÚSICA
+   MÚSICA ROMÁNTICA
 ===================================================== */
 
 let audio=null;
@@ -2231,35 +2431,50 @@ let notaActual=0;
 
 
 /*
- Melodía original sencilla.
+   Melodía lenta y romántica.
+
+   Sonidos suaves:
+   - Piano/sintetizador
+   - Acordes mayores
+   - Ritmo lento
 */
 
-const notas=[
+
+const melodiaRomantica=[
+
     261.63,
     329.63,
     392.00,
-    329.63,
 
+    329.63,
     293.66,
+
     349.23,
     440.00,
-    349.23,
+
+    392.00,
+    329.63,
 
     261.63,
     329.63,
+
     392.00,
     493.88,
 
     440.00,
     392.00,
+
     329.63,
     261.63
+
 ];
 
 
 function iniciarMusica(){
 
-    if(musicaActiva)
+    if(
+        musicaActiva
+    )
         return;
 
 
@@ -2288,13 +2503,17 @@ function iniciarMusica(){
             "🎵 Música ON";
 
 
-        tocarNota();
+        tocarNotaRomantica();
 
+
+        /*
+         Más lenta que antes.
+        */
 
         intervaloMusica=
             setInterval(
-                tocarNota,
-                360
+                tocarNotaRomantica,
+                600
             );
 
     }
@@ -2310,7 +2529,11 @@ function iniciarMusica(){
 }
 
 
-function tocarNota(){
+/*
+   Toca una nota suave.
+*/
+
+function tocarNotaRomantica(){
 
     if(
         !musicaActiva ||
@@ -2319,27 +2542,35 @@ function tocarNota(){
         return;
 
 
+    const nota=
+        melodiaRomantica[
+            notaActual
+        ];
+
+
+    /*
+     Oscilador principal.
+    */
+
     const osc=
         audio.createOscillator();
+
 
     const gain=
         audio.createGain();
 
 
-    osc.type="triangle";
+    osc.type=
+        "sine";
 
 
     osc.frequency.value=
-        notas[notaActual];
+        nota;
 
 
     const ahora=
         audio.currentTime;
 
-
-    /*
-     Volumen más audible.
-    */
 
     gain.gain.setValueAtTime(
         .0001,
@@ -2348,14 +2579,14 @@ function tocarNota(){
 
 
     gain.gain.exponentialRampToValueAtTime(
-        .08,
-        ahora+.03
+        .055,
+        ahora+.08
     );
 
 
     gain.gain.exponentialRampToValueAtTime(
         .0001,
-        ahora+.30
+        ahora+.52
     );
 
 
@@ -2366,18 +2597,88 @@ function tocarNota(){
     );
 
 
-    osc.start(ahora);
+    osc.start(
+        ahora
+    );
+
 
     osc.stop(
-        ahora+.32
+        ahora+.55
     );
+
+
+    /*
+     A veces agregamos
+     una segunda nota suave
+     para dar sensación de acorde.
+    */
+
+    if(
+        notaActual%4===0
+    ){
+
+        const acorde=
+            audio.createOscillator();
+
+
+        const volumen=
+            audio.createGain();
+
+
+        acorde.type=
+            "sine";
+
+
+        acorde.frequency.value=
+            nota*1.5;
+
+
+        volumen.gain.setValueAtTime(
+            .0001,
+            ahora
+        );
+
+
+        volumen.gain.exponentialRampToValueAtTime(
+            .018,
+            ahora+.1
+        );
+
+
+        volumen.gain.exponentialRampToValueAtTime(
+            .0001,
+            ahora+.5
+        );
+
+
+        acorde.connect(
+            volumen
+        );
+
+
+        volumen.connect(
+            audio.destination
+        );
+
+
+        acorde.start(
+            ahora
+        );
+
+
+        acorde.stop(
+            ahora+.53
+        );
+
+    }
 
 
     notaActual++;
 
 
     if(
-        notaActual>=notas.length
+        notaActual>=
+        melodiaRomantica.length
     ){
 
         notaActual=0;
@@ -2386,6 +2687,10 @@ function tocarNota(){
 
 }
 
+
+/* =====================================================
+   MÚSICA ON / OFF
+===================================================== */
 
 function detenerMusica(){
 
@@ -2410,7 +2715,9 @@ function detenerMusica(){
 
 function musicaToggle(){
 
-    if(musicaActiva){
+    if(
+        musicaActiva
+    ){
 
         detenerMusica();
 
@@ -2425,16 +2732,18 @@ function musicaToggle(){
 
 
 /* =====================================================
-   BUCLE DEL JUEGO
+   BUCLE
 ===================================================== */
 
 function bucle(){
 
-    if(!jugando)
+    if(
+        !jugando
+    )
         return;
 
 
-    actualizarJugador();
+    actualizarJugadora();
 
     actualizarCaracoles();
 
