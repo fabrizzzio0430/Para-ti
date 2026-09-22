@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -31,7 +32,7 @@ button{
 #inicio{
     position:fixed;
     inset:0;
-    z-index:10;
+    z-index:20;
 
     display:flex;
     justify-content:center;
@@ -41,19 +42,19 @@ button{
     color:white;
 
     background:
-        radial-gradient(
-            circle at 50% 25%,
-            #fff6b0 0px,
-            #ffd96a 90px,
-            transparent 260px
-        ),
-        linear-gradient(
-            to bottom,
-            #ffd45c 0%,
-            #ff9c48 35%,
-            #e96851 65%,
-            #70425a 100%
-        );
+    radial-gradient(
+        circle at 50% 25%,
+        #fff7b0 0,
+        #ffd866 90px,
+        transparent 260px
+    ),
+    linear-gradient(
+        to bottom,
+        #ffd75b 0%,
+        #ffad48 35%,
+        #eb7050 65%,
+        #68445b 100%
+    );
 }
 
 .intro{
@@ -62,11 +63,11 @@ button{
 
     border-radius:30px;
 
-    background:rgba(40,20,30,.35);
+    background:rgba(40,20,30,.42);
+
     backdrop-filter:blur(8px);
 
-    box-shadow:
-        0 20px 60px rgba(0,0,0,.3);
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
 }
 
 .intro .emoji{
@@ -92,26 +93,23 @@ button{
 
     border-radius:50px;
 
-    background:
-        linear-gradient(
-            135deg,
-            #ff704f,
-            #e84061
-        );
+    background:linear-gradient(
+        135deg,
+        #ff704f,
+        #e84061
+    );
 
     color:white;
 
     font-size:18px;
     font-weight:bold;
 
-    box-shadow:
-        0 8px 20px rgba(0,0,0,.3);
+    box-shadow:0 8px 20px rgba(0,0,0,.3);
 }
 
 .start:hover{
     transform:scale(1.05);
 }
-
 
 /* =========================
    JUEGO
@@ -128,13 +126,11 @@ button{
 
 canvas{
     position:absolute;
-
     inset:0;
 
     width:100%;
     height:100%;
 }
-
 
 /* =========================
    HUD
@@ -142,7 +138,6 @@ canvas{
 
 #hud{
     position:fixed;
-
     z-index:5;
 
     top:15px;
@@ -163,8 +158,7 @@ canvas{
 
     color:white;
 
-    background:
-        rgba(40,20,30,.55);
+    background:rgba(40,20,30,.6);
 
     backdrop-filter:blur(5px);
 
@@ -177,8 +171,7 @@ canvas{
 
     color:white;
 
-    background:
-        rgba(40,20,30,.65);
+    background:rgba(40,20,30,.7);
 
     padding:10px 15px;
 
@@ -187,14 +180,12 @@ canvas{
     font-weight:bold;
 }
 
-
 /* =========================
-   MENSAJE
+   MENSAJES
 ========================= */
 
 #mensaje{
     position:fixed;
-
     z-index:6;
 
     top:80px;
@@ -204,8 +195,7 @@ canvas{
 
     color:white;
 
-    background:
-        rgba(40,20,30,.7);
+    background:rgba(40,20,30,.75);
 
     padding:12px 22px;
 
@@ -226,23 +216,19 @@ canvas{
     opacity:1;
 }
 
-
 /* =========================
    CONTROLES
 ========================= */
 
 #controles{
     position:fixed;
-
     z-index:7;
 
     bottom:20px;
-
     left:0;
     right:0;
 
     display:flex;
-
     justify-content:space-between;
 
     padding:0 20px;
@@ -261,17 +247,14 @@ canvas{
 
     border-radius:50%;
 
-    background:
-        rgba(35,20,30,.6);
+    background:rgba(35,20,30,.65);
 
     color:white;
 
     font-size:27px;
     font-weight:bold;
 
-    border:
-        2px solid
-        rgba(255,255,255,.4);
+    border:2px solid rgba(255,255,255,.4);
 
     pointer-events:auto;
 }
@@ -281,13 +264,10 @@ canvas{
 }
 
 @media(min-width:800px){
-
     #controles{
         display:none;
     }
-
 }
-
 
 /* =========================
    FINAL
@@ -297,10 +277,8 @@ canvas{
     display:none;
 
     position:fixed;
-
     inset:0;
-
-    z-index:20;
+    z-index:30;
 
     justify-content:center;
     align-items:center;
@@ -310,18 +288,18 @@ canvas{
     color:white;
 
     background:
-        radial-gradient(
-            circle at 50% 20%,
-            #fff5a0 0,
-            #ffc75c 100px,
-            transparent 300px
-        ),
-        linear-gradient(
-            to bottom,
-            #ffc857 0%,
-            #ed7650 50%,
-            #66425a 100%
-        );
+    radial-gradient(
+        circle at 50% 20%,
+        #fff5a0 0,
+        #ffc75c 100px,
+        transparent 300px
+    ),
+    linear-gradient(
+        to bottom,
+        #ffc857 0%,
+        #ed7650 50%,
+        #66425a 100%
+    );
 }
 
 .finalCard{
@@ -331,91 +309,73 @@ canvas{
 
     border-radius:30px;
 
-    background:
-        rgba(40,20,30,.38);
+    background:rgba(40,20,30,.42);
 
     backdrop-filter:blur(10px);
 
-    box-shadow:
-        0 20px 60px rgba(0,0,0,.35);
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
 }
 
 .finalCard h1{
-    font-size:
-        clamp(35px,7vw,60px);
-
+    font-size:clamp(35px,7vw,60px);
     margin-bottom:18px;
 }
 
 .finalCard p{
     font-size:18px;
-
     line-height:1.7;
-
     margin-bottom:15px;
 }
 
 .floresFinal{
     font-size:43px;
-
     line-height:1.5;
-
     margin:20px 0;
 }
 
 .firma{
     font-style:italic;
-
     margin-top:20px;
 }
 
 .petalo{
     position:absolute;
-
     top:-40px;
 
     font-size:25px;
 
-    animation:
-        caer linear forwards;
+    animation:caer linear forwards;
 }
 
 @keyframes caer{
 
     to{
-
         transform:
             translateY(110vh)
             rotate(720deg);
-
     }
-
 }
 </style>
 </head>
 
 <body>
 
-
 <!-- =========================
-     INICIO
+     PANTALLA INICIAL
 ========================= -->
 
 <div id="inicio">
 
     <div class="intro">
 
-        <div class="emoji">
-            🌅
-        </div>
+        <div class="emoji">🌅</div>
 
         <h1>
             Tengo algo para ti...
         </h1>
 
         <p>
-            Hay una pequeña aventura
-            esperándote.
+            Hay una pequeña aventura esperándote.
         </p>
 
         <p>
@@ -426,10 +386,9 @@ canvas{
 
         <button
             class="start"
-            onclick="iniciarJuego()">
-
+            onclick="iniciarJuego()"
+        >
             Comenzar aventura ✨
-
         </button>
 
     </div>
@@ -445,32 +404,23 @@ canvas{
 
     <canvas id="canvas"></canvas>
 
-
     <div id="hud">
 
         <div class="hud">
-
             🌻 Flores:
-            <span id="flores">
-                0
-            </span>/7
-
+            <span id="flores">0</span>/7
         </div>
-
 
         <button
             id="music"
-            onclick="musicaToggle()">
-
+            onclick="musicaToggle()"
+        >
             🎵 Música ON
-
         </button>
 
     </div>
 
-
     <div id="mensaje"></div>
-
 
     <div id="controles">
 
@@ -478,32 +428,27 @@ canvas{
 
             <button
                 class="control"
-                id="izquierda">
-
+                id="izquierda"
+            >
                 ◀
-
             </button>
-
 
             <button
                 class="control"
-                id="derecha">
-
+                id="derecha"
+            >
                 ▶
-
             </button>
 
         </div>
-
 
         <div class="grupo">
 
             <button
                 class="control"
-                id="saltar">
-
+                id="saltar"
+            >
                 ⬆
-
             </button>
 
         </div>
@@ -525,45 +470,29 @@ canvas{
             💗 Lo lograste 💗
         </h1>
 
-
         <p>
-
             Recogiste todas las flores,
             superaste todos los obstáculos
             y llegaste hasta el final.
-
         </p>
-
 
         <div class="floresFinal">
-
-            🌻 🌷 🌼 🌹
-            🌻 🌷 🌼
-
+            🌻 🌷 🌼 🌹 🌻 🌷 🌼
         </div>
 
-
         <p>
-
             Espero que esta pequeña aventura
             te haya sacado una sonrisa.
-
         </p>
 
-
         <p>
-
             <strong>
                 Esto es para ti. ❤️
             </strong>
-
         </p>
 
-
         <div class="firma">
-
             — Fabrizzio Zúñiga
-
         </div>
 
     </div>
@@ -573,9 +502,9 @@ canvas{
 
 <script>
 
-/* =====================================================
+/* =========================================================
    CANVAS
-===================================================== */
+========================================================= */
 
 const canvas =
     document.getElementById("canvas");
@@ -583,33 +512,19 @@ const canvas =
 const ctx =
     canvas.getContext("2d");
 
-
-let W =
-    window.innerWidth;
-
-let H =
-    window.innerHeight;
-
+let W = window.innerWidth;
+let H = window.innerHeight;
 
 function ajustarCanvas(){
 
-    W =
-        window.innerWidth;
+    W = window.innerWidth;
+    H = window.innerHeight;
 
-    H =
-        window.innerHeight;
-
-    canvas.width =
-        W;
-
-    canvas.height =
-        H;
-
+    canvas.width = W;
+    canvas.height = H;
 }
 
-
 ajustarCanvas();
-
 
 window.addEventListener(
     "resize",
@@ -617,66 +532,53 @@ window.addEventListener(
 );
 
 
-/* =====================================================
-   VARIABLES
-===================================================== */
+/* =========================================================
+   CONFIGURACIÓN
+========================================================= */
 
-const mundoAncho =
-    5200;
+const mundoAncho = 5200;
 
+let camara = 0;
+let jugando = false;
 
-let camara =
-    0;
-
-
-let jugando =
-    false;
-
-
-let flores =
-    0;
-
+let flores = 0;
 
 let mensajeTimer;
 
 
-/* =====================================================
+/* =========================================================
    JUGADORA
-===================================================== */
+========================================================= */
 
 const jugadora = {
 
     x:120,
-
     y:0,
 
     w:42,
-
     h:55,
 
     vx:0,
-
     vy:0,
 
     velocidad:5.5,
 
-    salto:14,
+    /* salto más fuerte para alcanzar plataformas */
+    salto:17,
 
     suelo:false,
 
     empujada:false
-
 };
 
 
-/* =====================================================
-   CONTROLES
-===================================================== */
+/* =========================================================
+   TECLAS
+========================================================= */
 
 const teclas = {
 
     izquierda:false,
-
     derecha:false
 
 };
@@ -690,21 +592,15 @@ document.addEventListener(
             e.key==="ArrowLeft" ||
             e.key.toLowerCase()==="a"
         ){
-
             teclas.izquierda=true;
-
         }
-
 
         if(
             e.key==="ArrowRight" ||
             e.key.toLowerCase()==="d"
         ){
-
             teclas.derecha=true;
-
         }
-
 
         if(
             e.key==="ArrowUp" ||
@@ -715,7 +611,6 @@ document.addEventListener(
             e.preventDefault();
 
             saltarJugadora();
-
         }
 
     }
@@ -730,28 +625,23 @@ document.addEventListener(
             e.key==="ArrowLeft" ||
             e.key.toLowerCase()==="a"
         ){
-
             teclas.izquierda=false;
-
         }
-
 
         if(
             e.key==="ArrowRight" ||
             e.key.toLowerCase()==="d"
         ){
-
             teclas.derecha=false;
-
         }
 
     }
 );
 
 
-/* =====================================================
+/* =========================================================
    CONTROLES CELULAR
-===================================================== */
+========================================================= */
 
 function botonMovimiento(
     id,
@@ -760,7 +650,6 @@ function botonMovimiento(
 
     const boton =
         document.getElementById(id);
-
 
     boton.addEventListener(
         "pointerdown",
@@ -773,7 +662,6 @@ function botonMovimiento(
         }
     );
 
-
     boton.addEventListener(
         "pointerup",
         function(e){
@@ -785,7 +673,6 @@ function botonMovimiento(
         }
     );
 
-
     boton.addEventListener(
         "pointercancel",
         function(){
@@ -795,7 +682,6 @@ function botonMovimiento(
         }
     );
 
-
     boton.addEventListener(
         "pointerleave",
         function(){
@@ -804,7 +690,6 @@ function botonMovimiento(
 
         }
     );
-
 }
 
 
@@ -813,16 +698,15 @@ botonMovimiento(
     "izquierda"
 );
 
-
 botonMovimiento(
     "derecha",
     "derecha"
 );
 
 
-document
-.getElementById("saltar")
-.addEventListener(
+document.getElementById(
+    "saltar"
+).addEventListener(
     "pointerdown",
     function(e){
 
@@ -834,10 +718,20 @@ document
 );
 
 
-/* =====================================================
+/* =========================================================
    PLATAFORMAS
-   AHORA ESTÁN MÁS ARRIBA
-===================================================== */
+   MÁS ABAJO
+========================================================= */
+
+/*
+   IMPORTANTE:
+
+   Las plataformas ahora están MÁS ABAJO
+   que en la versión anterior.
+
+   Además están separadas de forma que
+   la protagonista pueda saltar entre ellas.
+*/
 
 const plataformas = [
 
@@ -845,78 +739,78 @@ const plataformas = [
         x:500,
         w:230,
         h:25,
-        altura:330
+        altura:210
     },
 
     {
         x:900,
         w:230,
         h:25,
-        altura:450
+        altura:250
     },
 
     {
         x:1300,
         w:260,
         h:25,
-        altura:300
+        altura:190
     },
 
     {
         x:1750,
         w:240,
         h:25,
-        altura:430
+        altura:250
     },
 
     {
         x:2200,
         w:250,
         h:25,
-        altura:350
+        altura:210
     },
 
     {
         x:2650,
         w:240,
         h:25,
-        altura:470
+        altura:260
     },
 
     {
         x:3100,
         w:250,
         h:25,
-        altura:330
+        altura:200
     },
 
     {
         x:3550,
         w:240,
         h:25,
-        altura:450
+        altura:250
     },
 
     {
         x:4000,
         w:260,
         h:25,
-        altura:320
+        altura:200
     },
 
     {
         x:4400,
         w:240,
         h:25,
-        altura:440
+        altura:250
     }
 
 ];
 
 
-/* =====================================================
+/* =========================================================
    FLORES
-===================================================== */
+========================================================= */
 
 const floresJuego = [
 
@@ -972,9 +866,9 @@ const floresJuego = [
 ];
 
 
-/* =====================================================
+/* =========================================================
    CARACOLES
-===================================================== */
+========================================================= */
 
 const caracoles = [
 
@@ -989,7 +883,7 @@ const caracoles = [
     {
         x:1150,
         inicio:1050,
-        fin:1300,
+        fin:1250,
         velocidad:1.8,
         direccion:-1
     },
@@ -997,7 +891,7 @@ const caracoles = [
     {
         x:1550,
         inicio:1450,
-        fin:1720,
+        fin:1700,
         velocidad:1.4,
         direccion:1
     },
@@ -1005,7 +899,7 @@ const caracoles = [
     {
         x:2050,
         inicio:1900,
-        fin:2200,
+        fin:2180,
         velocidad:1.7,
         direccion:-1
     },
@@ -1037,83 +931,63 @@ const caracoles = [
 ];
 
 
-/* =====================================================
+/* =========================================================
    META
-===================================================== */
+========================================================= */
 
 const meta = {
 
     x:4900,
-
     w:80
 
 };
 
 
-/* =====================================================
-   INICIO DEL JUEGO
-===================================================== */
+/* =========================================================
+   INICIAR JUEGO
+========================================================= */
 
 function iniciarJuego(){
 
-    document
-    .getElementById("inicio")
-    .style.display="none";
+    document.getElementById(
+        "inicio"
+    ).style.display="none";
 
-
-    document
-    .getElementById("juego")
-    .style.display="block";
-
+    document.getElementById(
+        "juego"
+    ).style.display="block";
 
     jugando=true;
 
-
     flores=0;
 
-
-    document
-    .getElementById("flores")
-    .textContent="0";
-
+    document.getElementById(
+        "flores"
+    ).textContent="0";
 
     floresJuego.forEach(
-        f=>f.recogida=false
+        f => f.recogida=false
     );
-
 
     jugadora.x=120;
 
-
-    jugadora.y=
+    jugadora.y =
         H-120-jugadora.h;
 
-
     jugadora.vx=0;
-
     jugadora.vy=0;
 
     jugadora.suelo=true;
 
-
-    /*
-     La música comienza
-     con el clic del botón.
-    */
-
     iniciarMusica();
 
-
-    requestAnimationFrame(
-        bucle
-    );
-
+    requestAnimationFrame(bucle);
 }
 
 
-/* =====================================================
+/* =========================================================
    SALTO
-===================================================== */
+========================================================= */
 
 function saltarJugadora(){
 
@@ -1122,19 +996,18 @@ function saltarJugadora(){
         jugadora.suelo
     ){
 
-        jugadora.vy=
+        jugadora.vy =
             -jugadora.salto;
 
         jugadora.suelo=false;
-
     }
 
 }
 
 
-/* =====================================================
-   FÍSICA
-===================================================== */
+/* =========================================================
+   ACTUALIZAR JUGADORA
+========================================================= */
 
 function actualizarJugadora(){
 
@@ -1143,55 +1016,58 @@ function actualizarJugadora(){
         !teclas.derecha
     ){
 
-        jugadora.vx=
+        jugadora.vx =
             -jugadora.velocidad;
 
     }
+
     else if(
         teclas.derecha &&
         !teclas.izquierda
     ){
 
-        jugadora.vx=
+        jugadora.vx =
             jugadora.velocidad;
 
     }
+
     else{
 
-        jugadora.vx*=.78;
+        jugadora.vx *= .78;
 
     }
 
 
-    const anteriorY=
+    const anteriorY =
         jugadora.y;
 
 
-    jugadora.x+=
+    jugadora.x +=
         jugadora.vx;
 
 
-    jugadora.vy+=.65;
+    /* gravedad */
 
-    jugadora.y+=
+    jugadora.vy += .65;
+
+    jugadora.y +=
         jugadora.vy;
 
 
-    if(
-        jugadora.x<0
-    ){
+    /* límites */
+
+    if(jugadora.x<0){
 
         jugadora.x=0;
 
     }
 
-
     if(
-        jugadora.x>
+        jugadora.x >
         mundoAncho-jugadora.w
     ){
 
-        jugadora.x=
+        jugadora.x =
             mundoAncho-jugadora.w;
 
     }
@@ -1200,22 +1076,20 @@ function actualizarJugadora(){
     jugadora.suelo=false;
 
 
-    /*
-     SUELO
-    */
+    /* =====================================================
+       SUELO
+    ===================================================== */
 
-    const sueloY=
+    const sueloY =
         H-120;
 
 
     if(
-        jugadora.y+
-        jugadora.h>=
-        sueloY &&
+        jugadora.y+jugadora.h >= sueloY &&
         jugadora.vy>=0
     ){
 
-        jugadora.y=
+        jugadora.y =
             sueloY-jugadora.h;
 
         jugadora.vy=0;
@@ -1225,35 +1099,26 @@ function actualizarJugadora(){
     }
 
 
-    /*
-     PLATAFORMAS
-    */
+    /* =====================================================
+       PLATAFORMAS
+    ===================================================== */
 
     for(
         const p of plataformas
     ){
 
-        const py=
+        const py =
             H-120-p.altura;
 
+        const anteriorAbajo =
+            anteriorY+jugadora.h;
 
-        const anteriorAbajo=
-            anteriorY+
-            jugadora.h;
+        const abajo =
+            jugadora.y+jugadora.h;
 
-
-        const abajo=
-            jugadora.y+
-            jugadora.h;
-
-
-        const horizontal=
-            jugadora.x+
-            jugadora.w>
-            p.x &&
-
-            jugadora.x<
-            p.x+p.w;
+        const horizontal =
+            jugadora.x+jugadora.w>p.x &&
+            jugadora.x<p.x+p.w;
 
 
         if(
@@ -1263,7 +1128,7 @@ function actualizarJugadora(){
             abajo>=py
         ){
 
-            jugadora.y=
+            jugadora.y =
                 py-jugadora.h;
 
             jugadora.vy=0;
@@ -1275,19 +1140,18 @@ function actualizarJugadora(){
     }
 
 
-    /*
-     Si cae demasiado,
-     vuelve al inicio.
-    */
+    /* =====================================================
+       CAÍDA
+    ===================================================== */
 
     if(
-        jugadora.y>
+        jugadora.y >
         H+200
     ){
 
         jugadora.x=120;
 
-        jugadora.y=
+        jugadora.y =
             H-120-jugadora.h;
 
         jugadora.vy=0;
@@ -1297,9 +1161,9 @@ function actualizarJugadora(){
 }
 
 
-/* =====================================================
+/* =========================================================
    CARACOLES
-===================================================== */
+========================================================= */
 
 function actualizarCaracoles(){
 
@@ -1307,13 +1171,8 @@ function actualizarCaracoles(){
         const c of caracoles
     ){
 
-        /*
-         Movimiento constante.
-        */
-
-        c.x+=
-            c.velocidad*
-            c.direccion;
+        c.x +=
+            c.velocidad*c.direccion;
 
 
         if(
@@ -1338,30 +1197,24 @@ function actualizarCaracoles(){
         }
 
 
-        /*
-         Ya NO quitan vidas.
-         Solo empujan ligeramente
-         a la jugadora hacia atrás.
-        */
-
-        const caracolY=
+        const caracolY =
             H-120-45;
 
 
+        /* choque */
+
         if(
 
-            jugadora.x+
-            jugadora.w>
+            jugadora.x+jugadora.w >
             c.x+5 &&
 
-            jugadora.x<
+            jugadora.x <
             c.x+45 &&
 
-            jugadora.y+
-            jugadora.h>
+            jugadora.y+jugadora.h >
             caracolY+5 &&
 
-            jugadora.y<
+            jugadora.y <
             caracolY+45
 
         ){
@@ -1371,10 +1224,6 @@ function actualizarCaracoles(){
                 jugadora.empujada=true;
 
 
-                /*
-                 Empujón pequeño.
-                */
-
                 if(
                     c.direccion>0
                 ){
@@ -1382,6 +1231,7 @@ function actualizarCaracoles(){
                     jugadora.vx=-7;
 
                 }
+
                 else{
 
                     jugadora.vx=7;
@@ -1410,9 +1260,9 @@ function actualizarCaracoles(){
 }
 
 
-/* =====================================================
-   ALTURA DE FLORES
-===================================================== */
+/* =========================================================
+   POSICIÓN DE FLORES
+========================================================= */
 
 function obtenerYFlor(flor){
 
@@ -1425,23 +1275,20 @@ function obtenerYFlor(flor){
     }
 
 
-    const p=
-        plataformas[
-            flor.plataforma
-        ];
+    const p =
+        plataformas[flor.plataforma];
 
 
-    return H-
-        120-
-        p.altura-
-        48;
+    return (
+        H-120-p.altura-48
+    );
 
 }
 
 
-/* =====================================================
+/* =========================================================
    FLORES
-===================================================== */
+========================================================= */
 
 function actualizarFlores(){
 
@@ -1449,30 +1296,26 @@ function actualizarFlores(){
         const f of floresJuego
     ){
 
-        if(
-            f.recogida
-        )
+        if(f.recogida)
             continue;
 
 
-        const fy=
+        const fy =
             obtenerYFlor(f);
 
 
         if(
 
-            jugadora.x+
-            jugadora.w>
+            jugadora.x+jugadora.w >
             f.x &&
 
-            jugadora.x<
+            jugadora.x <
             f.x+45 &&
 
-            jugadora.y+
-            jugadora.h>
+            jugadora.y+jugadora.h >
             fy &&
 
-            jugadora.y<
+            jugadora.y <
             fy+45
 
         ){
@@ -1482,10 +1325,9 @@ function actualizarFlores(){
             flores++;
 
 
-            document
-            .getElementById("flores")
-            .textContent=
-                flores;
+            document.getElementById(
+                "flores"
+            ).textContent=flores;
 
 
             mostrarMensaje(
@@ -1493,9 +1335,7 @@ function actualizarFlores(){
             );
 
 
-            if(
-                flores===7
-            ){
+            if(flores===7){
 
                 mostrarMensaje(
                     "✨ ¡Tienes todas las flores! Ve a la bandera."
@@ -1510,46 +1350,37 @@ function actualizarFlores(){
 }
 
 
-/* =====================================================
+/* =========================================================
    CÁMARA
-===================================================== */
+========================================================= */
 
 function actualizarCamara(){
 
-    camara=
-        jugadora.x-
-        W*.4;
+    camara =
+        jugadora.x-W*.4;
 
 
-    if(
-        camara<0
-    )
+    if(camara<0)
         camara=0;
 
 
-    const max=
+    const max =
         mundoAncho-W;
 
 
-    if(
-        camara>max
-    )
+    if(camara>max)
         camara=max;
 
 }
 
 
-/* =====================================================
-   FONDO DEL ATARDECER
-===================================================== */
+/* =========================================================
+   FONDO
+========================================================= */
 
 function dibujarFondo(){
 
-    /*
-     CIELO
-    */
-
-    const gradiente=
+    const gradiente =
         ctx.createLinearGradient(
             0,
             0,
@@ -1563,24 +1394,20 @@ function dibujarFondo(){
         "#ffd95a"
     );
 
-
     gradiente.addColorStop(
         .25,
         "#ffad45"
     );
-
 
     gradiente.addColorStop(
         .48,
         "#ef7650"
     );
 
-
     gradiente.addColorStop(
         .70,
         "#bb5260"
     );
-
 
     gradiente.addColorStop(
         1,
@@ -1588,9 +1415,8 @@ function dibujarFondo(){
     );
 
 
-    ctx.fillStyle=
+    ctx.fillStyle =
         gradiente;
-
 
     ctx.fillRect(
         0,
@@ -1600,19 +1426,16 @@ function dibujarFondo(){
     );
 
 
-    /*
-     SOL
-    */
+    /* SOL */
 
-    const solX=
+    const solX =
         W*.73;
 
-
-    const solY=
+    const solY =
         H*.30;
 
 
-    const brillo=
+    const brillo =
         ctx.createRadialGradient(
             solX,
             solY,
@@ -1628,12 +1451,10 @@ function dibujarFondo(){
         "rgba(255,249,190,.95)"
     );
 
-
     brillo.addColorStop(
         .4,
         "rgba(255,221,110,.45)"
     );
-
 
     brillo.addColorStop(
         1,
@@ -1641,9 +1462,7 @@ function dibujarFondo(){
     );
 
 
-    ctx.fillStyle=
-        brillo;
-
+    ctx.fillStyle=brillo;
 
     ctx.fillRect(
         solX-180,
@@ -1653,12 +1472,10 @@ function dibujarFondo(){
     );
 
 
-    ctx.fillStyle=
+    ctx.fillStyle =
         "#fff2a1";
 
-
     ctx.beginPath();
-
 
     ctx.arc(
         solX,
@@ -1668,13 +1485,10 @@ function dibujarFondo(){
         Math.PI*2
     );
 
-
     ctx.fill();
 
 
-    /*
-     MONTAÑAS
-    */
+    /* MONTAÑAS */
 
     dibujarMontana(
         50-camara*.12,
@@ -1683,14 +1497,12 @@ function dibujarFondo(){
         280
     );
 
-
     dibujarMontana(
         650-camara*.12,
         H-120,
         600,
         330
     );
-
 
     dibujarMontana(
         1400-camara*.12,
@@ -1699,7 +1511,6 @@ function dibujarFondo(){
         300
     );
 
-
     dibujarMontana(
         2100-camara*.12,
         H-120,
@@ -1707,14 +1518,12 @@ function dibujarFondo(){
         340
     );
 
-
     dibujarMontana(
         2900-camara*.12,
         H-120,
         550,
         300
     );
-
 
     dibujarMontana(
         3700-camara*.12,
@@ -1726,6 +1535,10 @@ function dibujarFondo(){
 }
 
 
+/* =========================================================
+   MONTAÑAS
+========================================================= */
+
 function dibujarMontana(
     x,
     base,
@@ -1733,64 +1546,56 @@ function dibujarMontana(
     alto
 ){
 
-    ctx.fillStyle=
+    ctx.fillStyle =
         "rgba(76,57,68,.43)";
 
 
     ctx.beginPath();
-
 
     ctx.moveTo(
         x,
         base
     );
 
-
     ctx.lineTo(
         x+ancho*.45,
         base-alto
     );
-
 
     ctx.lineTo(
         x+ancho*.62,
         base-alto*.55
     );
 
-
     ctx.lineTo(
         x+ancho*.78,
         base-alto*.8
     );
-
 
     ctx.lineTo(
         x+ancho,
         base
     );
 
-
     ctx.closePath();
-
 
     ctx.fill();
 
 }
 
 
-/* =====================================================
+/* =========================================================
    SUELO
-===================================================== */
+========================================================= */
 
 function dibujarSuelo(){
 
-    const sueloY=
+    const sueloY =
         H-120;
 
 
-    ctx.fillStyle=
+    ctx.fillStyle =
         "#687344";
-
 
     ctx.fillRect(
         0,
@@ -1800,9 +1605,8 @@ function dibujarSuelo(){
     );
 
 
-    ctx.fillStyle=
+    ctx.fillStyle =
         "#92944f";
-
 
     ctx.fillRect(
         0,
@@ -1812,13 +1616,8 @@ function dibujarSuelo(){
     );
 
 
-    /*
-     Pasto.
-    */
-
-    ctx.strokeStyle=
+    ctx.strokeStyle =
         "#7b8648";
-
 
     ctx.lineWidth=3;
 
@@ -1831,18 +1630,15 @@ function dibujarSuelo(){
 
         ctx.beginPath();
 
-
         ctx.moveTo(
             x,
             sueloY
         );
 
-
         ctx.lineTo(
             x+5,
             sueloY-10
         );
-
 
         ctx.stroke();
 
@@ -1851,9 +1647,9 @@ function dibujarSuelo(){
 }
 
 
-/* =====================================================
+/* =========================================================
    PLATAFORMAS
-===================================================== */
+========================================================= */
 
 function dibujarPlataformas(){
 
@@ -1861,11 +1657,10 @@ function dibujarPlataformas(){
         const p of plataformas
     ){
 
-        const x=
+        const x =
             p.x-camara;
 
-
-        const y=
+        const y =
             H-120-p.altura;
 
 
@@ -1876,13 +1671,10 @@ function dibujarPlataformas(){
             continue;
 
 
-        /*
-         Tierra.
-        */
+        /* madera */
 
-        ctx.fillStyle=
+        ctx.fillStyle =
             "#765238";
-
 
         ctx.fillRect(
             x,
@@ -1892,13 +1684,10 @@ function dibujarPlataformas(){
         );
 
 
-        /*
-         Parte superior.
-        */
+        /* parte superior */
 
-        ctx.fillStyle=
+        ctx.fillStyle =
             "#9e8b4b";
-
 
         ctx.fillRect(
             x,
@@ -1908,13 +1697,10 @@ function dibujarPlataformas(){
         );
 
 
-        /*
-         Hierba.
-        */
+        /* pasto */
 
-        ctx.fillStyle=
+        ctx.fillStyle =
             "#74834a";
-
 
         ctx.fillRect(
             x,
@@ -1928,9 +1714,9 @@ function dibujarPlataformas(){
 }
 
 
-/* =====================================================
-   FLORES
-===================================================== */
+/* =========================================================
+   FLORES DIBUJADAS
+========================================================= */
 
 function dibujarFlores(){
 
@@ -1938,17 +1724,14 @@ function dibujarFlores(){
         const f of floresJuego
     ){
 
-        if(
-            f.recogida
-        )
+        if(f.recogida)
             continue;
 
 
-        const x=
+        const x =
             f.x-camara;
 
-
-        const y=
+        const y =
             obtenerYFlor(f);
 
 
@@ -1959,18 +1742,16 @@ function dibujarFlores(){
             continue;
 
 
-        const flotacion=
+        const flotacion =
             Math.sin(
-                Date.now()/300+
-                f.x
+                Date.now()/300+f.x
             )*6;
 
 
-        ctx.font=
+        ctx.font =
             "38px Arial";
 
-
-        ctx.textAlign=
+        ctx.textAlign =
             "center";
 
 
@@ -1985,9 +1766,9 @@ function dibujarFlores(){
 }
 
 
-/* =====================================================
+/* =========================================================
    CARACOLES
-===================================================== */
+========================================================= */
 
 function dibujarCaracoles(){
 
@@ -1995,11 +1776,10 @@ function dibujarCaracoles(){
         const c of caracoles
     ){
 
-        const x=
+        const x =
             c.x-camara;
 
-
-        const y=
+        const y =
             H-120-45;
 
 
@@ -2010,20 +1790,17 @@ function dibujarCaracoles(){
             continue;
 
 
-        /*
-         Sombra.
-        */
+        /* sombra */
 
-        ctx.fillStyle=
-            "rgba(0,0,0,.2)";
+        ctx.fillStyle =
+            "rgba(0,0,0,.25)";
 
 
         ctx.beginPath();
 
-
         ctx.ellipse(
             x+25,
-            y+42,
+            y+43,
             25,
             6,
             0,
@@ -2031,21 +1808,18 @@ function dibujarCaracoles(){
             Math.PI*2
         );
 
-
         ctx.fill();
 
 
         /*
-         Caracol.
+           Caracol grande y visible
         */
 
-        ctx.font=
-            "42px Arial";
+        ctx.font =
+            "46px Arial";
 
-
-        ctx.textAlign=
+        ctx.textAlign =
             "center";
-
 
         ctx.save();
 
@@ -2071,7 +1845,7 @@ function dibujarCaracoles(){
         ctx.fillText(
             "🐌",
             0,
-            15
+            16
         );
 
 
@@ -2082,34 +1856,30 @@ function dibujarCaracoles(){
 }
 
 
-/* =====================================================
-   DIBUJAR CHICA
-===================================================== */
+/* =========================================================
+   CHICA
+========================================================= */
 
 function dibujarJugadora(){
 
-    const x=
+    const x =
         jugadora.x-camara;
 
-
-    const y=
+    const y =
         jugadora.y;
 
 
-    /*
-     Sombra.
-    */
+    /* sombra */
 
-    ctx.fillStyle=
-        "rgba(0,0,0,.2)";
+    ctx.fillStyle =
+        "rgba(0,0,0,.25)";
 
 
     ctx.beginPath();
 
-
     ctx.ellipse(
         x+21,
-        y+55,
+        y+56,
         20,
         5,
         0,
@@ -2117,72 +1887,243 @@ function dibujarJugadora(){
         Math.PI*2
     );
 
-
     ctx.fill();
 
 
     /*
-     CHICA 👩
-     
-     Usamos una chica como personaje
-     en lugar del astronauta.
+       Cuerpo de la chica.
+       Se dibuja con formas para evitar
+       que el personaje se vea transparente.
     */
 
-    ctx.font=
-        "47px Arial";
+
+    /* cabello */
+
+    ctx.fillStyle =
+        "#5b3028";
+
+    ctx.beginPath();
+
+    ctx.arc(
+        x+21,
+        y+15,
+        16,
+        0,
+        Math.PI*2
+    );
+
+    ctx.fill();
 
 
-    ctx.textAlign=
-        "center";
+    /* cara */
+
+    ctx.fillStyle =
+        "#ffd0a8";
+
+    ctx.beginPath();
+
+    ctx.arc(
+        x+21,
+        y+18,
+        11,
+        0,
+        Math.PI*2
+    );
+
+    ctx.fill();
 
 
-    ctx.save();
+    /* cabello lateral */
+
+    ctx.fillStyle =
+        "#5b3028";
+
+    ctx.beginPath();
+
+    ctx.arc(
+        x+12,
+        y+20,
+        7,
+        0,
+        Math.PI*2
+    );
+
+    ctx.fill();
 
 
-    if(
-        jugadora.vx<0
-    ){
+    ctx.beginPath();
 
-        ctx.scale(
-            -1,
-            1
-        );
+    ctx.arc(
+        x+30,
+        y+20,
+        7,
+        0,
+        Math.PI*2
+    );
 
-
-        ctx.fillText(
-            "👩",
-            -x-21,
-            y+45
-        );
-
-    }
-    else{
-
-        ctx.fillText(
-            "👩",
-            x+21,
-            y+45
-        );
-
-    }
+    ctx.fill();
 
 
-    ctx.restore();
+    /* vestido */
+
+    ctx.fillStyle =
+        "#e94f73";
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        x+12,
+        y+29
+    );
+
+    ctx.lineTo(
+        x+30,
+        y+29
+    );
+
+    ctx.lineTo(
+        x+38,
+        y+52
+    );
+
+    ctx.lineTo(
+        x+4,
+        y+52
+    );
+
+    ctx.closePath();
+
+    ctx.fill();
+
+
+    /* brazos */
+
+    ctx.strokeStyle =
+        "#ffd0a8";
+
+    ctx.lineWidth=5;
+
+    ctx.lineCap="round";
+
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        x+12,
+        y+32
+    );
+
+    ctx.lineTo(
+        x+4,
+        y+43
+    );
+
+    ctx.stroke();
+
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        x+30,
+        y+32
+    );
+
+    ctx.lineTo(
+        x+38,
+        y+43
+    );
+
+    ctx.stroke();
+
+
+    /* piernas */
+
+    ctx.strokeStyle =
+        "#ffd0a8";
+
+    ctx.lineWidth=5;
+
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        x+16,
+        y+51
+    );
+
+    ctx.lineTo(
+        x+13,
+        y+57
+    );
+
+    ctx.stroke();
+
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        x+26,
+        y+51
+    );
+
+    ctx.lineTo(
+        x+29,
+        y+57
+    );
+
+    ctx.stroke();
+
+
+    /* zapatos */
+
+    ctx.strokeStyle =
+        "#3b2930";
+
+    ctx.lineWidth=4;
+
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        x+10,
+        y+58
+    );
+
+    ctx.lineTo(
+        x+17,
+        y+58
+    );
+
+    ctx.stroke();
+
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        x+26,
+        y+58
+    );
+
+    ctx.lineTo(
+        x+33,
+        y+58
+    );
+
+    ctx.stroke();
 
 }
 
 
-/* =====================================================
+/* =========================================================
    META
-===================================================== */
+========================================================= */
 
 function dibujarMeta(){
 
-    const x=
+    const x =
         meta.x-camara;
 
-
-    const sueloY=
+    const sueloY =
         H-120;
 
 
@@ -2193,9 +2134,10 @@ function dibujarMeta(){
         return;
 
 
-    ctx.fillStyle=
-        "#eeeeee";
+    /* poste */
 
+    ctx.fillStyle =
+        "#eeeeee";
 
     ctx.fillRect(
         x+20,
@@ -2205,28 +2147,41 @@ function dibujarMeta(){
     );
 
 
-    ctx.font=
-        "48px Arial";
+    /* bandera */
 
+    ctx.fillStyle =
+        "#e84364";
 
-    ctx.textAlign=
-        "left";
+    ctx.beginPath();
 
+    ctx.moveTo(
+        x+27,
+        sueloY-165
+    );
 
-    ctx.fillText(
-        "🏁",
-        x+25,
+    ctx.lineTo(
+        x+80,
+        sueloY-145
+    );
+
+    ctx.lineTo(
+        x+27,
         sueloY-125
     );
 
+    ctx.closePath();
 
-    ctx.font=
+    ctx.fill();
+
+
+    ctx.font =
         "bold 16px Arial";
 
-
-    ctx.fillStyle=
+    ctx.fillStyle =
         "white";
 
+    ctx.textAlign =
+        "left";
 
     ctx.fillText(
         "META",
@@ -2237,9 +2192,9 @@ function dibujarMeta(){
 }
 
 
-/* =====================================================
+/* =========================================================
    DIBUJAR TODO
-===================================================== */
+========================================================= */
 
 function dibujar(){
 
@@ -2260,19 +2215,19 @@ function dibujar(){
 }
 
 
-/* =====================================================
-   MENSAJE
-===================================================== */
+/* =========================================================
+   MENSAJES
+========================================================= */
 
 function mostrarMensaje(texto){
 
-    const elemento=
+    const elemento =
         document.getElementById(
             "mensaje"
         );
 
 
-    elemento.textContent=
+    elemento.textContent =
         texto;
 
 
@@ -2286,7 +2241,7 @@ function mostrarMensaje(texto){
     );
 
 
-    mensajeTimer=
+    mensajeTimer =
         setTimeout(
             ()=>{
                 elemento.classList.remove(
@@ -2299,21 +2254,19 @@ function mostrarMensaje(texto){
 }
 
 
-/* =====================================================
+/* =========================================================
    META
-===================================================== */
+========================================================= */
 
 function comprobarMeta(){
 
     if(
 
-        jugadora.x+
-        jugadora.w>
+        jugadora.x+jugadora.w >
         meta.x &&
 
-        jugadora.x<
-        meta.x+
-        meta.w
+        jugadora.x <
+        meta.x+meta.w
 
     ){
 
@@ -2324,6 +2277,7 @@ function comprobarMeta(){
             terminarJuego();
 
         }
+
         else{
 
             mostrarMensaje(
@@ -2337,24 +2291,26 @@ function comprobarMeta(){
 }
 
 
-/* =====================================================
-   FINAL
-===================================================== */
+/* =========================================================
+   TERMINAR
+========================================================= */
 
 function terminarJuego(){
 
     jugando=false;
 
-
-    document
-    .getElementById("final")
-    .style.display="flex";
-
+    document.getElementById(
+        "final"
+    ).style.display="flex";
 
     crearPetalos();
 
 }
 
+
+/* =========================================================
+   PÉTALOS
+========================================================= */
 
 function crearPetalos(){
 
@@ -2373,17 +2329,17 @@ function crearPetalos(){
         i++
     ){
 
-        const p=
+        const p =
             document.createElement(
                 "div"
             );
 
 
-        p.className=
+        p.className =
             "petalo";
 
 
-        p.textContent=
+        p.textContent =
             simbolos[
                 Math.floor(
                     Math.random()*
@@ -2392,34 +2348,30 @@ function crearPetalos(){
             ];
 
 
-        p.style.left=
-            Math.random()*100+
-            "%";
+        p.style.left =
+            Math.random()*100+"%";
 
 
-        p.style.animationDuration=
-            4+
-            Math.random()*5+
-            "s";
+        p.style.animationDuration =
+            4+Math.random()*5+"s";
 
 
-        p.style.animationDelay=
-            Math.random()*3+
-            "s";
+        p.style.animationDelay =
+            Math.random()*3+"s";
 
 
-        document
-        .getElementById("final")
-        .appendChild(p);
+        document.getElementById(
+            "final"
+        ).appendChild(p);
 
     }
 
 }
 
 
-/* =====================================================
+/* =========================================================
    MÚSICA ROMÁNTICA
-===================================================== */
+========================================================= */
 
 let audio=null;
 
@@ -2431,50 +2383,53 @@ let notaActual=0;
 
 
 /*
-   Melodía lenta y romántica.
-
-   Sonidos suaves:
-   - Piano/sintetizador
-   - Acordes mayores
-   - Ritmo lento
+   Melodía romántica suave.
+   Se genera directamente con Web Audio,
+   por lo que no necesita archivos externos.
 */
 
-
-const melodiaRomantica=[
+const melodiaRomantica = [
 
     261.63,
     329.63,
     392.00,
-
     329.63,
-    293.66,
 
+    293.66,
     349.23,
     440.00,
-
     392.00,
-    329.63,
 
+    329.63,
     261.63,
     329.63,
-
     392.00,
-    493.88,
 
+    493.88,
     440.00,
     392.00,
-
     329.63,
+
+    293.66,
+    329.63,
+    392.00,
+    440.00,
+
+    392.00,
+    329.63,
+    293.66,
     261.63
 
 ];
 
 
+/* =========================================================
+   INICIAR MÚSICA
+========================================================= */
+
 function iniciarMusica(){
 
-    if(
-        musicaActiva
-    )
+    if(musicaActiva)
         return;
 
 
@@ -2482,8 +2437,8 @@ function iniciarMusica(){
 
         if(!audio){
 
-            audio=
-                new (
+            audio =
+                new(
                     window.AudioContext ||
                     window.webkitAudioContext
                 )();
@@ -2497,26 +2452,23 @@ function iniciarMusica(){
         musicaActiva=true;
 
 
-        document
-        .getElementById("music")
-        .textContent=
+        document.getElementById(
+            "music"
+        ).textContent =
             "🎵 Música ON";
 
 
         tocarNotaRomantica();
 
 
-        /*
-         Más lenta que antes.
-        */
-
-        intervaloMusica=
+        intervaloMusica =
             setInterval(
                 tocarNotaRomantica,
-                600
+                520
             );
 
     }
+
     catch(error){
 
         console.log(
@@ -2529,9 +2481,9 @@ function iniciarMusica(){
 }
 
 
-/*
-   Toca una nota suave.
-*/
+/* =========================================================
+   NOTA
+========================================================= */
 
 function tocarNotaRomantica(){
 
@@ -2542,34 +2494,33 @@ function tocarNotaRomantica(){
         return;
 
 
-    const nota=
+    const nota =
         melodiaRomantica[
             notaActual
         ];
 
 
+    const ahora =
+        audio.currentTime;
+
+
     /*
-     Oscilador principal.
+       Nota principal
     */
 
-    const osc=
+    const osc =
         audio.createOscillator();
 
-
-    const gain=
+    const gain =
         audio.createGain();
 
 
-    osc.type=
+    osc.type =
         "sine";
 
 
-    osc.frequency.value=
+    osc.frequency.value =
         nota;
-
-
-    const ahora=
-        audio.currentTime;
 
 
     gain.gain.setValueAtTime(
@@ -2579,14 +2530,14 @@ function tocarNotaRomantica(){
 
 
     gain.gain.exponentialRampToValueAtTime(
-        .055,
+        .06,
         ahora+.08
     );
 
 
     gain.gain.exponentialRampToValueAtTime(
         .0001,
-        ahora+.52
+        ahora+.48
     );
 
 
@@ -2597,39 +2548,34 @@ function tocarNotaRomantica(){
     );
 
 
-    osc.start(
-        ahora
-    );
-
+    osc.start(ahora);
 
     osc.stop(
-        ahora+.55
+        ahora+.5
     );
 
 
     /*
-     A veces agregamos
-     una segunda nota suave
-     para dar sensación de acorde.
+       Segunda nota para darle
+       un sonido más romántico.
     */
 
     if(
         notaActual%4===0
     ){
 
-        const acorde=
+        const acorde =
             audio.createOscillator();
 
-
-        const volumen=
+        const volumen =
             audio.createGain();
 
 
-        acorde.type=
+        acorde.type =
             "sine";
 
 
-        acorde.frequency.value=
+        acorde.frequency.value =
             nota*1.5;
 
 
@@ -2640,21 +2586,20 @@ function tocarNotaRomantica(){
 
 
         volumen.gain.exponentialRampToValueAtTime(
-            .018,
+            .025,
             ahora+.1
         );
 
 
         volumen.gain.exponentialRampToValueAtTime(
             .0001,
-            ahora+.5
+            ahora+.45
         );
 
 
         acorde.connect(
             volumen
         );
-
 
         volumen.connect(
             audio.destination
@@ -2665,9 +2610,8 @@ function tocarNotaRomantica(){
             ahora
         );
 
-
         acorde.stop(
-            ahora+.53
+            ahora+.48
         );
 
     }
@@ -2688,9 +2632,9 @@ function tocarNotaRomantica(){
 }
 
 
-/* =====================================================
-   MÚSICA ON / OFF
-===================================================== */
+/* =========================================================
+   APAGAR MÚSICA
+========================================================= */
 
 function detenerMusica(){
 
@@ -2705,23 +2649,26 @@ function detenerMusica(){
     intervaloMusica=null;
 
 
-    document
-    .getElementById("music")
-    .textContent=
+    document.getElementById(
+        "music"
+    ).textContent =
         "🔇 Música OFF";
 
 }
 
 
+/* =========================================================
+   BOTÓN MÚSICA
+========================================================= */
+
 function musicaToggle(){
 
-    if(
-        musicaActiva
-    ){
+    if(musicaActiva){
 
         detenerMusica();
 
     }
+
     else{
 
         iniciarMusica();
@@ -2731,15 +2678,13 @@ function musicaToggle(){
 }
 
 
-/* =====================================================
-   BUCLE
-===================================================== */
+/* =========================================================
+   BUCLE DEL JUEGO
+========================================================= */
 
 function bucle(){
 
-    if(
-        !jugando
-    )
+    if(!jugando)
         return;
 
 
@@ -2766,3 +2711,4 @@ function bucle(){
 
 </body>
 </html>
+```
