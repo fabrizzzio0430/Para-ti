@@ -3,2392 +3,1867 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Una aventura para ti 🌻</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para ti 🌻</title>
 
 <style>
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
 }
 
 html,body{
     width:100%;
     height:100%;
     overflow:hidden;
-    font-family:Arial,sans-serif;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 }
 
-button{
-    border:0;
-    cursor:pointer;
+body{
+    background:#171522;
 }
 
-/* =========================
-   INICIO
-========================= */
+/* =====================================================
+   FONDO GENERAL
+===================================================== */
 
-#inicio{
+#app{
     position:fixed;
     inset:0;
-    z-index:20;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    text-align:center;
-    color:white;
+    overflow:hidden;
 
     background:
-    radial-gradient(
-        circle at 50% 25%,
-        #fff7b0 0,
-        #ffd866 90px,
-        transparent 260px
-    ),
-    linear-gradient(
-        to bottom,
-        #ffd75b 0%,
-        #ffad48 35%,
-        #eb7050 65%,
-        #68445b 100%
-    );
+        radial-gradient(
+            circle at 50% 28%,
+            rgba(255,244,171,.95) 0,
+            rgba(255,193,91,.55) 12%,
+            transparent 32%
+        ),
+        linear-gradient(
+            to bottom,
+            #f9c85b 0%,
+            #ee8a57 36%,
+            #b95b65 67%,
+            #392e48 100%
+        );
+
+    transition:
+        background 2s ease;
 }
 
-.intro{
-    width:min(90%,600px);
-    padding:35px;
+/* =====================================================
+   SOL
+===================================================== */
 
-    border-radius:30px;
-
-    background:rgba(40,20,30,.42);
-
-    backdrop-filter:blur(8px);
-
-    box-shadow:0 20px 60px rgba(0,0,0,.35);
-}
-
-.intro .emoji{
-    font-size:70px;
-    margin-bottom:10px;
-}
-
-.intro h1{
-    font-size:clamp(35px,7vw,60px);
-    margin-bottom:18px;
-}
-
-.intro p{
-    font-size:18px;
-    line-height:1.6;
-    margin-bottom:14px;
-}
-
-.start{
-    margin-top:15px;
-
-    padding:16px 30px;
-
-    border-radius:50px;
-
-    background:linear-gradient(
-        135deg,
-        #ff704f,
-        #e84061
-    );
-
-    color:white;
-
-    font-size:18px;
-    font-weight:bold;
-
-    box-shadow:0 8px 20px rgba(0,0,0,.3);
-}
-
-.start:hover{
-    transform:scale(1.05);
-}
-
-/* =========================
-   JUEGO
-========================= */
-
-#juego{
-    display:none;
-
-    position:fixed;
-    inset:0;
-
-    background:#e8754d;
-}
-
-canvas{
+.sol{
     position:absolute;
-    inset:0;
 
-    width:100%;
-    height:100%;
-}
+    width:130px;
+    height:130px;
 
-/* =========================
-   HUD
-========================= */
-
-#hud{
-    position:fixed;
-    z-index:5;
-
-    top:15px;
-    left:15px;
-    right:15px;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    pointer-events:none;
-}
-
-.hud{
-    padding:10px 16px;
-
-    border-radius:20px;
-
-    color:white;
-
-    background:rgba(40,20,30,.6);
-
-    backdrop-filter:blur(5px);
-
-    font-weight:bold;
-    font-size:17px;
-}
-
-#music{
-    pointer-events:auto;
-
-    color:white;
-
-    background:rgba(40,20,30,.7);
-
-    padding:10px 15px;
-
-    border-radius:20px;
-
-    font-weight:bold;
-}
-
-/* =========================
-   MENSAJES
-========================= */
-
-#mensaje{
-    position:fixed;
-    z-index:6;
-
-    top:80px;
     left:50%;
+    top:22%;
 
-    transform:translateX(-50%);
-
-    color:white;
-
-    background:rgba(40,20,30,.75);
-
-    padding:12px 22px;
-
-    border-radius:20px;
-
-    opacity:0;
-
-    transition:.3s;
-
-    pointer-events:none;
-
-    text-align:center;
-
-    font-weight:bold;
-}
-
-#mensaje.visible{
-    opacity:1;
-}
-
-/* =========================
-   CONTROLES
-========================= */
-
-#controles{
-    position:fixed;
-    z-index:7;
-
-    bottom:20px;
-    left:0;
-    right:0;
-
-    display:flex;
-    justify-content:space-between;
-
-    padding:0 20px;
-
-    pointer-events:none;
-}
-
-.grupo{
-    display:flex;
-    gap:12px;
-}
-
-.control{
-    width:65px;
-    height:65px;
+    transform:translate(-50%,-50%);
 
     border-radius:50%;
 
-    background:rgba(35,20,30,.65);
+    background:#fff4a5;
 
-    color:white;
+    box-shadow:
+        0 0 30px #fff0a0,
+        0 0 80px rgba(255,225,100,.7),
+        0 0 150px rgba(255,200,80,.4);
 
-    font-size:27px;
-    font-weight:bold;
-
-    border:2px solid rgba(255,255,255,.4);
-
-    pointer-events:auto;
+    animation:
+        solRespira 5s ease-in-out infinite;
 }
 
-.control:active{
-    transform:scale(.9);
-}
+@keyframes solRespira{
 
-@media(min-width:800px){
-    #controles{
-        display:none;
+    0%,100%{
+        transform:translate(-50%,-50%) scale(1);
+    }
+
+    50%{
+        transform:translate(-50%,-50%) scale(1.04);
     }
 }
 
-/* =========================
-   FINAL
-========================= */
+/* =====================================================
+   MONTAÑAS
+===================================================== */
 
-#final{
-    display:none;
+.montanas{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    height:43%;
+}
 
-    position:fixed;
+.montana{
+    position:absolute;
+    bottom:0;
+
+    width:0;
+    height:0;
+
+    border-left:180px solid transparent;
+    border-right:180px solid transparent;
+    border-bottom:260px solid rgba(65,48,65,.55);
+}
+
+.m1{
+    left:-80px;
+}
+
+.m2{
+    left:18%;
+    transform:scale(1.35);
+    opacity:.7;
+}
+
+.m3{
+    left:45%;
+    transform:scale(1.1);
+    opacity:.65;
+}
+
+.m4{
+    right:-100px;
+    transform:scale(1.4);
+    opacity:.8;
+}
+
+/* =====================================================
+   LUNA / ESTRELLAS
+===================================================== */
+
+.estrellas{
+    position:absolute;
     inset:0;
-    z-index:30;
+    opacity:0;
 
-    justify-content:center;
-    align-items:center;
-
-    text-align:center;
-
-    color:white;
-
-    background:
-    radial-gradient(
-        circle at 50% 20%,
-        #fff5a0 0,
-        #ffc75c 100px,
-        transparent 300px
-    ),
-    linear-gradient(
-        to bottom,
-        #ffc857 0%,
-        #ed7650 50%,
-        #66425a 100%
-    );
+    transition:opacity 2s ease;
 }
 
-.finalCard{
-    width:min(90%,650px);
-
-    padding:35px;
-
-    border-radius:30px;
-
-    background:rgba(40,20,30,.42);
-
-    backdrop-filter:blur(10px);
-
-    box-shadow:0 20px 60px rgba(0,0,0,.35);
+.estrellas.activo{
+    opacity:1;
 }
 
-.finalCard h1{
-    font-size:clamp(35px,7vw,60px);
-    margin-bottom:18px;
+.estrella{
+    position:absolute;
+
+    width:3px;
+    height:3px;
+
+    border-radius:50%;
+
+    background:white;
+
+    box-shadow:0 0 8px white;
+
+    animation:
+        parpadeo 2s ease-in-out infinite;
 }
 
-.finalCard p{
-    font-size:18px;
-    line-height:1.7;
-    margin-bottom:15px;
+@keyframes parpadeo{
+
+    0%,100%{
+        opacity:.25;
+        transform:scale(.7);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.3);
+    }
 }
 
-.floresFinal{
-    font-size:43px;
-    line-height:1.5;
-    margin:20px 0;
-}
+/* =====================================================
+   PÉTALOS DEL FONDO
+===================================================== */
 
-.firma{
-    font-style:italic;
-    margin-top:20px;
+.petalos{
+    position:absolute;
+    inset:0;
+
+    pointer-events:none;
+    overflow:hidden;
 }
 
 .petalo{
     position:absolute;
-    top:-40px;
+    top:-50px;
 
-    font-size:25px;
+    font-size:18px;
 
-    animation:caer linear forwards;
+    opacity:.65;
+
+    animation:
+        caer linear infinite;
 }
 
 @keyframes caer{
 
-    to{
+    0%{
+        transform:
+            translateY(-60px)
+            translateX(0)
+            rotate(0deg);
+    }
+
+    50%{
+        transform:
+            translateY(50vh)
+            translateX(40px)
+            rotate(180deg);
+    }
+
+    100%{
         transform:
             translateY(110vh)
-            rotate(720deg);
+            translateX(-30px)
+            rotate(360deg);
     }
+}
+
+/* =====================================================
+   PANTALLAS
+===================================================== */
+
+.pantalla{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:25px;
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:
+        scale(.94)
+        translateY(25px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease,
+        visibility .7s;
+}
+
+.pantalla.activa{
+    opacity:1;
+    visibility:visible;
+
+    transform:
+        scale(1)
+        translateY(0);
+}
+
+/* =====================================================
+   TARJETA
+===================================================== */
+
+.tarjeta{
+    position:relative;
+
+    width:min(680px,94vw);
+
+    padding:
+        clamp(28px,5vw,55px)
+        clamp(24px,6vw,60px);
+
+    text-align:center;
+
+    color:#fff;
+
+    border:1px solid rgba(255,255,255,.25);
+
+    border-radius:35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(50,25,40,.55),
+            rgba(45,25,45,.35)
+        );
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.35),
+        inset 0 1px 0 rgba(255,255,255,.18);
+
+    overflow:hidden;
+}
+
+.tarjeta::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+    height:220px;
+
+    left:-100px;
+    top:-120px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,230,130,.13);
+
+    filter:blur(20px);
+}
+
+/* =====================================================
+   TIPOGRAFÍA
+===================================================== */
+
+.mini{
+    font-family:Arial,sans-serif;
+
+    font-size:13px;
+
+    letter-spacing:4px;
+    text-transform:uppercase;
+
+    opacity:.75;
+
+    margin-bottom:18px;
+}
+
+h1{
+    font-size:
+        clamp(38px,8vw,68px);
+
+    line-height:1.05;
+
+    font-weight:normal;
+
+    margin-bottom:22px;
+
+    text-shadow:
+        0 4px 25px rgba(0,0,0,.25);
+}
+
+h2{
+    font-size:
+        clamp(28px,6vw,48px);
+
+    font-weight:normal;
+
+    line-height:1.15;
+
+    margin-bottom:18px;
+}
+
+p{
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size:
+        clamp(16px,3vw,19px);
+
+    line-height:1.7;
+
+    opacity:.92;
+}
+
+/* =====================================================
+   BOTÓN PRINCIPAL
+===================================================== */
+
+.boton{
+
+    position:relative;
+
+    margin-top:30px;
+
+    padding:
+        15px 28px;
+
+    min-width:170px;
+
+    border-radius:100px;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e95f70,
+            #c94f72
+        );
+
+    font-family:Arial,sans-serif;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.3);
+
+    overflow:hidden;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.boton::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-100%;
+
+    width:100%;
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.35),
+            transparent
+        );
+
+    transition:left .6s ease;
+}
+
+.boton:hover{
+
+    transform:
+        translateY(-3px)
+        scale(1.04);
+
+    box-shadow:
+        0 15px 30px rgba(0,0,0,.35);
+}
+
+.boton:hover::before{
+    left:100%;
+}
+
+/* =====================================================
+   RESPUESTAS
+===================================================== */
+
+.respuestas{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:14px;
+
+    margin-top:30px;
+}
+
+.respuesta{
+
+    padding:
+        14px 22px;
+
+    border-radius:50px;
+
+    color:white;
+
+    background:
+        rgba(255,255,255,.11);
+
+    border:
+        1px solid rgba(255,255,255,.25);
+
+    font-family:Arial,sans-serif;
+
+    font-size:16px;
+
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+}
+
+.respuesta:hover{
+
+    transform:
+        translateY(-5px)
+        scale(1.04);
+
+    background:
+        rgba(255,255,255,.2);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.2);
+}
+
+/* =====================================================
+   INDICADOR
+===================================================== */
+
+.progreso{
+
+    position:absolute;
+
+    top:25px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    display:flex;
+
+    gap:7px;
+}
+
+.punto{
+
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.3);
+
+    transition:
+        transform .3s,
+        background .3s;
+}
+
+.punto.activo{
+
+    transform:scale(1.5);
+
+    background:#fff0a0;
+
+    box-shadow:
+        0 0 10px #fff0a0;
+}
+
+/* =====================================================
+   CORAZÓN
+===================================================== */
+
+.corazon{
+
+    display:inline-block;
+
+    font-size:58px;
+
+    margin-bottom:15px;
+
+    animation:
+        latido 1.5s ease-in-out infinite;
+}
+
+@keyframes latido{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    15%{
+        transform:scale(1.18);
+    }
+
+    30%{
+        transform:scale(1);
+    }
+
+    45%{
+        transform:scale(1.12);
+    }
+}
+
+/* =====================================================
+   TRANSICIÓN ESPECIAL
+===================================================== */
+
+#transicion{
+
+    position:fixed;
+    inset:0;
+
+    z-index:50;
+
+    pointer-events:none;
+
+    opacity:0;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,238,150,.95),
+            rgba(255,190,90,.75),
+            rgba(70,35,60,.95)
+        );
+
+    transition:
+        opacity 1.2s ease;
+}
+
+#transicion.activa{
+    opacity:1;
+}
+
+/* =====================================================
+   ESCENA FINAL
+===================================================== */
+
+.final{
+
+    width:min(1000px,95vw);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:clamp(25px,5vw,70px);
+
+    text-align:left;
+}
+
+.ramo{
+
+    position:relative;
+
+    width:
+        clamp(260px,38vw,390px);
+
+    height:
+        clamp(330px,55vw,480px);
+
+    flex-shrink:0;
+
+    animation:
+        aparecerRamo 1.6s ease forwards;
+
+    transform:
+        translateY(50px)
+        scale(.75);
+
+    opacity:0;
+}
+
+@keyframes aparecerRamo{
+
+    0%{
+        opacity:0;
+        transform:
+            translateY(80px)
+            scale(.65)
+            rotate(-5deg);
+    }
+
+    70%{
+        opacity:1;
+        transform:
+            translateY(-8px)
+            scale(1.03)
+            rotate(1deg);
+    }
+
+    100%{
+        opacity:1;
+        transform:
+            translateY(0)
+            scale(1)
+            rotate(0);
+    }
+}
+
+/* =====================================================
+   TALLOS
+===================================================== */
+
+.tallo{
+
+    position:absolute;
+
+    width:7px;
+
+    height:230px;
+
+    left:50%;
+
+    bottom:30px;
+
+    transform-origin:bottom;
+
+    background:
+        linear-gradient(
+            to right,
+            #426d43,
+            #6d9a51,
+            #365d3b
+        );
+
+    border-radius:10px;
+
+    animation:
+        balanceo 4s ease-in-out infinite;
+}
+
+.tallo:nth-child(2){
+    transform:rotate(-18deg);
+}
+
+.tallo:nth-child(3){
+    transform:rotate(17deg);
+}
+
+.tallo:nth-child(4){
+    transform:rotate(-7deg);
+}
+
+@keyframes balanceo{
+
+    0%,100%{
+        margin-left:0;
+    }
+
+    50%{
+        margin-left:4px;
+    }
+}
+
+/* =====================================================
+   HOJAS
+===================================================== */
+
+.hoja{
+
+    position:absolute;
+
+    width:55px;
+    height:25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6fa052,
+            #3f703f
+        );
+
+    border-radius:
+        100% 0 100% 0;
+
+    transform-origin:left center;
+}
+
+.hoja1{
+    left:35%;
+    bottom:125px;
+    transform:rotate(-25deg);
+}
+
+.hoja2{
+    left:55%;
+    bottom:175px;
+    transform:rotate(30deg);
+}
+
+.hoja3{
+    left:40%;
+    bottom:210px;
+    transform:rotate(-15deg);
+}
+
+/* =====================================================
+   FLORES
+===================================================== */
+
+.flor{
+
+    position:absolute;
+
+    width:115px;
+    height:115px;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    animation:
+        florFlota 4s ease-in-out infinite;
+}
+
+.flor1{
+    left:15%;
+    top:5%;
+    animation-delay:.1s;
+}
+
+.flor2{
+    left:43%;
+    top:0;
+    animation-delay:.5s;
+}
+
+.flor3{
+    left:67%;
+    top:13%;
+    animation-delay:1s;
+}
+
+.flor4{
+    left:27%;
+    top:27%;
+    animation-delay:1.5s;
+}
+
+.flor5{
+    left:52%;
+    top:25%;
+    animation-delay:2s;
+}
+
+@keyframes florFlota{
+
+    0%,100%{
+        transform:rotate(-3deg) translateY(0);
+    }
+
+    50%{
+        transform:rotate(3deg) translateY(-8px);
+    }
+}
+
+/* =====================================================
+   PÉTALOS DE CADA FLOR
+===================================================== */
+
+.flor::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:32px;
+    height:55px;
+
+    border-radius:
+        50% 50% 45% 45%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #fff36b,
+            #e8a928
+        );
+
+    box-shadow:
+
+        0 -27px 0 #ffd84a,
+
+        0 27px 0 #ffd84a,
+
+        27px 0 0 #ffdc4d,
+
+        -27px 0 0 #ffdc4d,
+
+        19px -19px 0 #ffe15b,
+
+        -19px -19px 0 #ffe15b,
+
+        19px 19px 0 #ffe15b,
+
+        -19px 19px 0 #ffe15b;
+}
+
+.flor::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:34px;
+    height:34px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #6f421e 0,
+            #a76620 45%,
+            #5a351b 100%
+        );
+
+    box-shadow:
+        0 0 15px rgba(255,190,50,.6);
+}
+
+/* =====================================================
+   MENSAJE FINAL
+===================================================== */
+
+.mensajeFinal{
+
+    max-width:500px;
+
+    opacity:0;
+
+    transform:
+        translateX(50px);
+
+    animation:
+        aparecerMensaje 1.4s 1s ease forwards;
+}
+
+@keyframes aparecerMensaje{
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateX(0);
+
+    }
+}
+
+.mensajeFinal .etiqueta{
+
+    font-family:Arial,sans-serif;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    font-size:12px;
+
+    opacity:.7;
+
+    margin-bottom:15px;
+}
+
+.mensajeFinal h2{
+
+    font-size:
+        clamp(32px,5vw,52px);
+
+    margin-bottom:20px;
+}
+
+.mensajeFinal p{
+
+    font-size:
+        clamp(16px,2.5vw,19px);
+
+    line-height:1.8;
+
+    margin-bottom:18px;
+}
+
+.firma{
+
+    margin-top:30px;
+
+    font-style:italic;
+
+    font-size:20px;
+
+    opacity:.9;
+}
+
+/* =====================================================
+   BRILLOS FINALES
+===================================================== */
+
+.brillo{
+
+    position:absolute;
+
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:#fff3a0;
+
+    box-shadow:
+        0 0 15px #fff3a0;
+
+    animation:
+        brilloFinal 2s ease-in-out infinite;
+}
+
+@keyframes brilloFinal{
+
+    0%,100%{
+        opacity:0;
+        transform:scale(.3);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.5);
+    }
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:700px){
+
+    .tarjeta{
+        padding:35px 22px;
+    }
+
+    .sol{
+        width:95px;
+        height:95px;
+        top:18%;
+    }
+
+    .final{
+        flex-direction:column;
+
+        gap:5px;
+
+        text-align:center;
+
+        max-height:92vh;
+
+        overflow:auto;
+
+        padding-top:30px;
+    }
+
+    .ramo{
+
+        width:280px;
+        height:300px;
+
+        transform:
+            scale(.75);
+    }
+
+    .mensajeFinal{
+        padding:0 15px 30px;
+    }
+
+    .mensajeFinal .firma{
+        margin-top:20px;
+    }
+
+    .flor{
+        transform:scale(.75);
+    }
+
 }
 </style>
 </head>
 
 <body>
 
-<!-- =========================
-     PANTALLA INICIAL
-========================= -->
+<div id="app">
 
-<div id="inicio">
+    <!-- SOL -->
+    <div class="sol"></div>
 
-    <div class="intro">
+    <!-- ESTRELLAS -->
+    <div class="estrellas" id="estrellas"></div>
 
-        <div class="emoji">🌅</div>
+    <!-- MONTAÑAS -->
+    <div class="montanas">
 
-        <h1>
-            Tengo algo para ti...
-        </h1>
-
-        <p>
-            Hay una pequeña aventura esperándote.
-        </p>
-
-        <p>
-            Recoge las 7 flores,
-            evita los caracoles
-            y llega hasta la bandera. 🌻
-        </p>
-
-        <button
-            class="start"
-            onclick="iniciarJuego()"
-        >
-            Comenzar aventura ✨
-        </button>
+        <div class="montana m1"></div>
+        <div class="montana m2"></div>
+        <div class="montana m3"></div>
+        <div class="montana m4"></div>
 
     </div>
 
-</div>
+    <!-- PÉTALOS -->
+    <div class="petalos" id="petalos"></div>
 
 
-<!-- =========================
-     JUEGO
-========================= -->
+    <!-- =================================================
+         PANTALLA 1
+    ================================================= -->
 
-<div id="juego">
+    <section
+        class="pantalla activa"
+        id="pantalla1"
+    >
 
-    <canvas id="canvas"></canvas>
+        <div class="tarjeta">
 
-    <div id="hud">
+            <div class="corazon">
+                💛
+            </div>
 
-        <div class="hud">
-            🌻 Flores:
-            <span id="flores">0</span>/7
-        </div>
+            <div class="mini">
+                Antes de darte algo...
+            </div>
 
-        <button
-            id="music"
-            onclick="musicaToggle()"
-        >
-            🎵 Música ON
-        </button>
+            <h1>
+                Tengo unas<br>
+                preguntas para ti
+            </h1>
 
-    </div>
-
-    <div id="mensaje"></div>
-
-    <div id="controles">
-
-        <div class="grupo">
-
-            <button
-                class="control"
-                id="izquierda"
-            >
-                ◀
-            </button>
+            <p>
+                Prometo que son poquitas.
+                <br>
+                Solo quiero saber cómo estás.
+            </p>
 
             <button
-                class="control"
-                id="derecha"
+                class="boton"
+                onclick="siguiente(2)"
             >
-                ▶
+                Empezar ✨
             </button>
 
         </div>
 
-        <div class="grupo">
+    </section>
+
+
+    <!-- =================================================
+         PANTALLA 2
+    ================================================= -->
+
+    <section
+        class="pantalla"
+        id="pantalla2"
+    >
+
+        <div class="tarjeta">
+
+            <div class="progreso">
+                <span class="punto activo"></span>
+                <span class="punto"></span>
+                <span class="punto"></span>
+                <span class="punto"></span>
+                <span class="punto"></span>
+            </div>
+
+            <div class="mini">
+                Primera pregunta
+            </div>
+
+            <h2>
+                ¿Cómo estás hoy?
+            </h2>
+
+            <p>
+                De verdad... no me digas solamente
+                lo que quieres que escuche.
+            </p>
+
+            <div class="respuestas">
+
+                <button
+                    class="respuesta"
+                    onclick="respuestaAnimo('bien')"
+                >
+                    Bien 😊
+                </button>
+
+                <button
+                    class="respuesta"
+                    onclick="respuestaAnimo('regular')"
+                >
+                    Más o menos 🌙
+                </button>
+
+                <button
+                    class="respuesta"
+                    onclick="respuestaAnimo('mal')"
+                >
+                    No muy bien 🫂
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         PANTALLA 3
+    ================================================= -->
+
+    <section
+        class="pantalla"
+        id="pantalla3"
+    >
+
+        <div class="tarjeta">
+
+            <div class="progreso">
+
+                <span class="punto"></span>
+
+                <span class="punto activo"></span>
+
+                <span class="punto"></span>
+
+                <span class="punto"></span>
+
+                <span class="punto"></span>
+
+            </div>
+
+            <div class="mini">
+                Una más...
+            </div>
+
+            <h2>
+                ¿Tu día estuvo bonito?
+            </h2>
+
+            <p id="textoDia">
+                Espero que haya tenido
+                aunque sea un momento
+                que te hiciera sonreír.
+            </p>
+
+            <div class="respuestas">
+
+                <button
+                    class="respuesta"
+                    onclick="respuestaDia('si')"
+                >
+                    Sí ☀️
+                </button>
+
+                <button
+                    class="respuesta"
+                    onclick="respuestaDia('no')"
+                >
+                    No tanto 🌧️
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         PANTALLA 4
+    ================================================= -->
+
+    <section
+        class="pantalla"
+        id="pantalla4"
+    >
+
+        <div class="tarjeta">
+
+            <div class="progreso">
+
+                <span class="punto"></span>
+
+                <span class="punto"></span>
+
+                <span class="punto activo"></span>
+
+                <span class="punto"></span>
+
+                <span class="punto"></span>
+
+            </div>
+
+            <div class="corazon">
+                🌻
+            </div>
+
+            <div class="mini">
+                Ahora sí...
+            </div>
+
+            <h2>
+                ¿Recibiste flores<br>
+                amarillas hoy?
+            </h2>
+
+            <p>
+                Esta pregunta es un poquito
+                más importante que las anteriores.
+            </p>
+
+            <div class="respuestas">
+
+                <button
+                    class="respuesta"
+                    onclick="respuestaFlores(true)"
+                >
+                    Sí 🌻
+                </button>
+
+                <button
+                    class="respuesta"
+                    onclick="respuestaFlores(false)"
+                >
+                    No 🥺
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         PANTALLA 5
+    ================================================= -->
+
+    <section
+        class="pantalla"
+        id="pantalla5"
+    >
+
+        <div class="tarjeta">
+
+            <div class="progreso">
+
+                <span class="punto"></span>
+
+                <span class="punto"></span>
+
+                <span class="punto"></span>
+
+                <span class="punto activo"></span>
+
+                <span class="punto"></span>
+
+            </div>
+
+            <div
+                class="corazon"
+                id="corazonRespuesta"
+            >
+                💛
+            </div>
+
+            <h2 id="tituloRespuesta">
+                ...
+            </h2>
+
+            <p id="mensajeRespuesta">
+                ...
+            </p>
 
             <button
-                class="control"
-                id="saltar"
+                class="boton"
+                onclick="prepararFlores()"
             >
-                ⬆
+                Espera... hay algo más 🌻
             </button>
 
         </div>
 
-    </div>
+    </section>
+
+
+    <!-- =================================================
+         PANTALLA FINAL
+    ================================================= -->
+
+    <section
+        class="pantalla"
+        id="pantallaFinal"
+    >
+
+        <div class="final">
+
+            <!-- RAMO -->
+
+            <div class="ramo">
+
+                <div class="tallo"></div>
+                <div class="tallo"></div>
+                <div class="tallo"></div>
+
+                <div class="hoja hoja1"></div>
+                <div class="hoja hoja2"></div>
+                <div class="hoja hoja3"></div>
+
+                <div class="flor flor1"></div>
+                <div class="flor flor2"></div>
+                <div class="flor flor3"></div>
+                <div class="flor flor4"></div>
+                <div class="flor flor5"></div>
+
+            </div>
+
+
+            <!-- MENSAJE -->
+
+            <div class="mensajeFinal">
+
+                <div class="etiqueta">
+                    Para ti
+                </div>
+
+                <h2>
+                    Estas flores<br>
+                    son para ti. 🌻
+                </h2>
+
+                <p>
+                    Tal vez hoy ya habías recibido
+                    flores amarillas...
+                </p>
+
+                <p>
+                    pero aun así me quedé con
+                    el pendiente de darte las mías.
+                </p>
+
+                <p>
+                    Porque quería que estas no fueran
+                    solamente flores.
+                    Quería que fueran un pequeño
+                    recordatorio de que alguien pensó
+                    en ti y quiso regalarte una sonrisa.
+                </p>
+
+                <p>
+                    Espero que cuando las veas,
+                    aunque sea por un momento,
+                    tengas un poquito de esa
+                    felicidad que mereces.
+                </p>
+
+                <div class="firma">
+                    — Fabrizzio Zúñiga ❤️
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
 
 </div>
 
 
-<!-- =========================
-     FINAL
-========================= -->
+<!-- TRANSICIÓN -->
 
-<div id="final">
-
-    <div class="finalCard">
-
-        <h1>
-            💗 Lo lograste 💗
-        </h1>
-
-        <p>
-            Recogiste todas las flores,
-            superaste todos los obstáculos
-            y llegaste hasta el final.
-        </p>
-
-        <div class="floresFinal">
-            🌻 🌷 🌼 🌹 🌻 🌷 🌼
-        </div>
-
-        <p>
-            Espero que esta pequeña aventura
-            te haya sacado una sonrisa.
-        </p>
-
-        <p>
-            <strong>
-                Esto es para ti. ❤️
-            </strong>
-        </p>
-
-        <div class="firma">
-            — Fabrizzio Zúñiga
-        </div>
-
-    </div>
-
-</div>
+<div id="transicion"></div>
 
 
 <script>
 
-/* =========================================================
-   CANVAS
-========================================================= */
+/* =====================================================
+   VARIABLES
+===================================================== */
 
-const canvas =
-    document.getElementById("canvas");
+let pantallaActual = 1;
 
-const ctx =
-    canvas.getContext("2d");
-
-let W = window.innerWidth;
-let H = window.innerHeight;
-
-function ajustarCanvas(){
-
-    W = window.innerWidth;
-    H = window.innerHeight;
-
-    canvas.width = W;
-    canvas.height = H;
-}
-
-ajustarCanvas();
-
-window.addEventListener(
-    "resize",
-    ajustarCanvas
-);
+let recibioFlores = false;
 
 
-/* =========================================================
-   CONFIGURACIÓN
-========================================================= */
+/* =====================================================
+   CREAR ESTRELLAS
+===================================================== */
 
-const mundoAncho = 5200;
+const estrellas =
+    document.getElementById("estrellas");
 
-let camara = 0;
-let jugando = false;
+for(let i=0;i<65;i++){
 
-let flores = 0;
+    const estrella =
+        document.createElement("div");
 
-let mensajeTimer;
+    estrella.className =
+        "estrella";
 
+    estrella.style.left =
+        Math.random()*100+"%";
 
-/* =========================================================
-   JUGADORA
-========================================================= */
+    estrella.style.top =
+        Math.random()*70+"%";
 
-const jugadora = {
+    estrella.style.animationDelay =
+        Math.random()*3+"s";
 
-    x:120,
-    y:0,
+    estrella.style.animationDuration =
+        1.5+Math.random()*3+"s";
 
-    w:42,
-    h:55,
-
-    vx:0,
-    vy:0,
-
-    velocidad:5.5,
-
-    /* salto más fuerte para alcanzar plataformas */
-    salto:17,
-
-    suelo:false,
-
-    empujada:false
-};
-
-
-/* =========================================================
-   TECLAS
-========================================================= */
-
-const teclas = {
-
-    izquierda:false,
-    derecha:false
-
-};
-
-
-document.addEventListener(
-    "keydown",
-    function(e){
-
-        if(
-            e.key==="ArrowLeft" ||
-            e.key.toLowerCase()==="a"
-        ){
-            teclas.izquierda=true;
-        }
-
-        if(
-            e.key==="ArrowRight" ||
-            e.key.toLowerCase()==="d"
-        ){
-            teclas.derecha=true;
-        }
-
-        if(
-            e.key==="ArrowUp" ||
-            e.key===" " ||
-            e.key.toLowerCase()==="w"
-        ){
-
-            e.preventDefault();
-
-            saltarJugadora();
-        }
-
-    }
-);
-
-
-document.addEventListener(
-    "keyup",
-    function(e){
-
-        if(
-            e.key==="ArrowLeft" ||
-            e.key.toLowerCase()==="a"
-        ){
-            teclas.izquierda=false;
-        }
-
-        if(
-            e.key==="ArrowRight" ||
-            e.key.toLowerCase()==="d"
-        ){
-            teclas.derecha=false;
-        }
-
-    }
-);
-
-
-/* =========================================================
-   CONTROLES CELULAR
-========================================================= */
-
-function botonMovimiento(
-    id,
-    propiedad
-){
-
-    const boton =
-        document.getElementById(id);
-
-    boton.addEventListener(
-        "pointerdown",
-        function(e){
-
-            e.preventDefault();
-
-            teclas[propiedad]=true;
-
-        }
-    );
-
-    boton.addEventListener(
-        "pointerup",
-        function(e){
-
-            e.preventDefault();
-
-            teclas[propiedad]=false;
-
-        }
-    );
-
-    boton.addEventListener(
-        "pointercancel",
-        function(){
-
-            teclas[propiedad]=false;
-
-        }
-    );
-
-    boton.addEventListener(
-        "pointerleave",
-        function(){
-
-            teclas[propiedad]=false;
-
-        }
+    estrellas.appendChild(
+        estrella
     );
 }
 
 
-botonMovimiento(
-    "izquierda",
-    "izquierda"
-);
+/* =====================================================
+   CREAR PÉTALOS
+===================================================== */
 
-botonMovimiento(
-    "derecha",
-    "derecha"
-);
+const petalos =
+    document.getElementById("petalos");
 
-
-document.getElementById(
-    "saltar"
-).addEventListener(
-    "pointerdown",
-    function(e){
-
-        e.preventDefault();
-
-        saltarJugadora();
-
-    }
-);
-
-
-/* =========================================================
-   PLATAFORMAS
-   MÁS ABAJO
-========================================================= */
-
-/*
-   IMPORTANTE:
-
-   Las plataformas ahora están MÁS ABAJO
-   que en la versión anterior.
-
-   Además están separadas de forma que
-   la protagonista pueda saltar entre ellas.
-*/
-
-const plataformas = [
-
-    {
-        x:500,
-        w:230,
-        h:25,
-        altura:210
-    },
-
-    {
-        x:900,
-        w:230,
-        h:25,
-        altura:250
-    },
-
-    {
-        x:1300,
-        w:260,
-        h:25,
-        altura:190
-    },
-
-    {
-        x:1750,
-        w:240,
-        h:25,
-        altura:250
-    },
-
-    {
-        x:2200,
-        w:250,
-        h:25,
-        altura:210
-    },
-
-    {
-        x:2650,
-        w:240,
-        h:25,
-        altura:260
-    },
-
-    {
-        x:3100,
-        w:250,
-        h:25,
-        altura:200
-    },
-
-    {
-        x:3550,
-        w:240,
-        h:25,
-        altura:250
-    },
-
-    {
-        x:4000,
-        w:260,
-        h:25,
-        altura:200
-    },
-
-    {
-        x:4400,
-        w:240,
-        h:25,
-        altura:250
-    }
-
+const simbolos=[
+    "🌸",
+    "🌼",
+    "🌻",
+    "✨"
 ];
 
+for(let i=0;i<24;i++){
 
-/* =========================================================
-   FLORES
-========================================================= */
+    const petalo =
+        document.createElement("div");
 
-const floresJuego = [
+    petalo.className =
+        "petalo";
 
-    {
-        x:350,
-        plataforma:false,
-        emoji:"🌻",
-        recogida:false
-    },
+    petalo.textContent =
+        simbolos[
+            Math.floor(
+                Math.random()*
+                simbolos.length
+            )
+        ];
 
-    {
-        x:580,
-        plataforma:0,
-        emoji:"🌷",
-        recogida:false
-    },
+    petalo.style.left =
+        Math.random()*100+"%";
 
-    {
-        x:970,
-        plataforma:1,
-        emoji:"🌼",
-        recogida:false
-    },
+    petalo.style.animationDuration =
+        8+Math.random()*12+"s";
 
-    {
-        x:1400,
-        plataforma:2,
-        emoji:"🌹",
-        recogida:false
-    },
+    petalo.style.animationDelay =
+        -Math.random()*15+"s";
 
-    {
-        x:1810,
-        plataforma:3,
-        emoji:"🌻",
-        recogida:false
-    },
+    petalo.style.fontSize =
+        12+Math.random()*13+"px";
 
-    {
-        x:2260,
-        plataforma:4,
-        emoji:"🌷",
-        recogida:false
-    },
-
-    {
-        x:2750,
-        plataforma:5,
-        emoji:"🌼",
-        recogida:false
-    }
-
-];
+    petalos.appendChild(
+        petalo
+    );
+}
 
 
-/* =========================================================
-   CARACOLES
-========================================================= */
+/* =====================================================
+   CAMBIAR PANTALLA
+===================================================== */
 
-const caracoles = [
+function siguiente(numero){
 
-    {
-        x:700,
-        inicio:650,
-        fin:850,
-        velocidad:1.5,
-        direccion:1
-    },
+    const actual =
+        document.getElementById(
+            "pantalla"+pantallaActual
+        );
 
-    {
-        x:1150,
-        inicio:1050,
-        fin:1250,
-        velocidad:1.8,
-        direccion:-1
-    },
-
-    {
-        x:1550,
-        inicio:1450,
-        fin:1700,
-        velocidad:1.4,
-        direccion:1
-    },
-
-    {
-        x:2050,
-        inicio:1900,
-        fin:2180,
-        velocidad:1.7,
-        direccion:-1
-    },
-
-    {
-        x:3000,
-        inicio:2850,
-        fin:3200,
-        velocidad:1.6,
-        direccion:1
-    },
-
-    {
-        x:3700,
-        inicio:3500,
-        fin:3950,
-        velocidad:1.9,
-        direccion:-1
-    },
-
-    {
-        x:4250,
-        inicio:4100,
-        fin:4450,
-        velocidad:1.5,
-        direccion:1
-    }
-
-];
-
-
-/* =========================================================
-   META
-========================================================= */
-
-const meta = {
-
-    x:4900,
-    w:80
-
-};
-
-
-/* =========================================================
-   INICIAR JUEGO
-========================================================= */
-
-function iniciarJuego(){
-
-    document.getElementById(
-        "inicio"
-    ).style.display="none";
-
-    document.getElementById(
-        "juego"
-    ).style.display="block";
-
-    jugando=true;
-
-    flores=0;
-
-    document.getElementById(
-        "flores"
-    ).textContent="0";
-
-    floresJuego.forEach(
-        f => f.recogida=false
+    actual.classList.remove(
+        "activa"
     );
 
-    jugadora.x=120;
 
-    jugadora.y =
-        H-120-jugadora.h;
+    setTimeout(()=>{
 
-    jugadora.vx=0;
-    jugadora.vy=0;
+        const nueva =
+            document.getElementById(
+                "pantalla"+numero
+            );
 
-    jugadora.suelo=true;
+        nueva.classList.add(
+            "activa"
+        );
 
-    iniciarMusica();
+        pantallaActual =
+            numero;
 
-    requestAnimationFrame(bucle);
-}
-
-
-/* =========================================================
-   SALTO
-========================================================= */
-
-function saltarJugadora(){
-
-    if(
-        jugando &&
-        jugadora.suelo
-    ){
-
-        jugadora.vy =
-            -jugadora.salto;
-
-        jugadora.suelo=false;
-    }
+    },350);
 
 }
 
 
-/* =========================================================
-   ACTUALIZAR JUGADORA
-========================================================= */
+/* =====================================================
+   RESPUESTA: ÁNIMO
+===================================================== */
 
-function actualizarJugadora(){
+function respuestaAnimo(tipo){
 
-    if(
-        teclas.izquierda &&
-        !teclas.derecha
-    ){
+    const textoDia =
+        document.getElementById(
+            "textoDia"
+        );
 
-        jugadora.vx =
-            -jugadora.velocidad;
+
+    if(tipo==="bien"){
+
+        textoDia.textContent =
+            "Me alegra mucho saberlo. Entonces espero que lo que viene ahora haga tu día un poquito más bonito. 💛";
 
     }
 
-    else if(
-        teclas.derecha &&
-        !teclas.izquierda
-    ){
+    else if(tipo==="regular"){
 
-        jugadora.vx =
-            jugadora.velocidad;
+        textoDia.textContent =
+            "Entonces espero poder mejorar aunque sea un poquito ese día con algo que preparé para ti. 🌻";
 
     }
 
     else{
 
-        jugadora.vx *= .78;
+        textoDia.textContent =
+            "Entonces quizá necesitabas una pequeña razón para sonreír. Déjame intentar darte una. 🫂";
 
     }
 
 
-    const anteriorY =
-        jugadora.y;
-
-
-    jugadora.x +=
-        jugadora.vx;
-
-
-    /* gravedad */
-
-    jugadora.vy += .65;
-
-    jugadora.y +=
-        jugadora.vy;
-
-
-    /* límites */
-
-    if(jugadora.x<0){
-
-        jugadora.x=0;
-
-    }
-
-    if(
-        jugadora.x >
-        mundoAncho-jugadora.w
-    ){
-
-        jugadora.x =
-            mundoAncho-jugadora.w;
-
-    }
-
-
-    jugadora.suelo=false;
-
-
-    /* =====================================================
-       SUELO
-    ===================================================== */
-
-    const sueloY =
-        H-120;
-
-
-    if(
-        jugadora.y+jugadora.h >= sueloY &&
-        jugadora.vy>=0
-    ){
-
-        jugadora.y =
-            sueloY-jugadora.h;
-
-        jugadora.vy=0;
-
-        jugadora.suelo=true;
-
-    }
-
-
-    /* =====================================================
-       PLATAFORMAS
-    ===================================================== */
-
-    for(
-        const p of plataformas
-    ){
-
-        const py =
-            H-120-p.altura;
-
-        const anteriorAbajo =
-            anteriorY+jugadora.h;
-
-        const abajo =
-            jugadora.y+jugadora.h;
-
-        const horizontal =
-            jugadora.x+jugadora.w>p.x &&
-            jugadora.x<p.x+p.w;
-
-
-        if(
-            horizontal &&
-            jugadora.vy>=0 &&
-            anteriorAbajo<=py &&
-            abajo>=py
-        ){
-
-            jugadora.y =
-                py-jugadora.h;
-
-            jugadora.vy=0;
-
-            jugadora.suelo=true;
-
-        }
-
-    }
-
-
-    /* =====================================================
-       CAÍDA
-    ===================================================== */
-
-    if(
-        jugadora.y >
-        H+200
-    ){
-
-        jugadora.x=120;
-
-        jugadora.y =
-            H-120-jugadora.h;
-
-        jugadora.vy=0;
-
-    }
-
+    siguiente(3);
 }
 
 
-/* =========================================================
-   CARACOLES
-========================================================= */
+/* =====================================================
+   RESPUESTA: DÍA
+===================================================== */
 
-function actualizarCaracoles(){
+function respuestaDia(tipo){
 
-    for(
-        const c of caracoles
-    ){
-
-        c.x +=
-            c.velocidad*c.direccion;
+    const texto =
+        document.getElementById(
+            "textoDia"
+        );
 
 
-        if(
-            c.x>=c.fin
-        ){
+    if(tipo==="si"){
 
-            c.x=c.fin;
-
-            c.direccion=-1;
-
-        }
-
-
-        if(
-            c.x<=c.inicio
-        ){
-
-            c.x=c.inicio;
-
-            c.direccion=1;
-
-        }
-
-
-        const caracolY =
-            H-120-45;
-
-
-        /* choque */
-
-        if(
-
-            jugadora.x+jugadora.w >
-            c.x+5 &&
-
-            jugadora.x <
-            c.x+45 &&
-
-            jugadora.y+jugadora.h >
-            caracolY+5 &&
-
-            jugadora.y <
-            caracolY+45
-
-        ){
-
-            if(!jugadora.empujada){
-
-                jugadora.empujada=true;
-
-
-                if(
-                    c.direccion>0
-                ){
-
-                    jugadora.vx=-7;
-
-                }
-
-                else{
-
-                    jugadora.vx=7;
-
-                }
-
-
-                mostrarMensaje(
-                    "🐌 ¡Cuidado con el caracol!"
-                );
-
-
-                setTimeout(
-                    ()=>{
-                        jugadora.empujada=false;
-                    },
-                    500
-                );
-
-            }
-
-        }
+        texto.textContent =
+            "Qué bueno. Me alegra que hayas tenido un día bonito. Pero todavía falta una pregunta...";
 
     }
 
-}
+    else{
 
-
-/* =========================================================
-   POSICIÓN DE FLORES
-========================================================= */
-
-function obtenerYFlor(flor){
-
-    if(
-        flor.plataforma===false
-    ){
-
-        return H-120-45;
+        texto.textContent =
+            "Entonces quizá estas flores lleguen en un buen momento. A veces una pequeña sorpresa puede cambiar un poquito el día. 💛";
 
     }
 
 
-    const p =
-        plataformas[flor.plataforma];
-
-
-    return (
-        H-120-p.altura-48
-    );
-
+    siguiente(4);
 }
 
 
-/* =========================================================
-   FLORES
-========================================================= */
+/* =====================================================
+   RESPUESTA: FLORES
+===================================================== */
 
-function actualizarFlores(){
+function respuestaFlores(recibio){
 
-    for(
-        const f of floresJuego
-    ){
-
-        if(f.recogida)
-            continue;
+    recibioFlores =
+        recibio;
 
 
-        const fy =
-            obtenerYFlor(f);
+    const titulo =
+        document.getElementById(
+            "tituloRespuesta"
+        );
+
+    const mensaje =
+        document.getElementById(
+            "mensajeRespuesta"
+        );
+
+    const corazon =
+        document.getElementById(
+            "corazonRespuesta"
+        );
 
 
-        if(
+    if(recibio){
 
-            jugadora.x+jugadora.w >
-            f.x &&
+        corazon.textContent =
+            "🌻";
 
-            jugadora.x <
-            f.x+45 &&
+        titulo.textContent =
+            "Qué bueno...";
 
-            jugadora.y+jugadora.h >
-            fy &&
-
-            jugadora.y <
-            fy+45
-
-        ){
-
-            f.recogida=true;
-
-            flores++;
-
-
-            document.getElementById(
-                "flores"
-            ).textContent=flores;
-
-
-            mostrarMensaje(
-                "🌻 ¡Flor encontrada!"
-            );
-
-
-            if(flores===7){
-
-                mostrarMensaje(
-                    "✨ ¡Tienes todas las flores! Ve a la bandera."
-                );
-
-            }
-
-        }
+        mensaje.textContent =
+            "Me alegra saber que recibiste flores amarillas hoy. Pero aun así me quedé con el pendiente de darte las mías. Porque estas quería dártelas yo.";
 
     }
 
-}
+    else{
 
+        corazon.textContent =
+            "💛";
 
-/* =========================================================
-   CÁMARA
-========================================================= */
+        titulo.textContent =
+            "Entonces llegué justo a tiempo...";
 
-function actualizarCamara(){
-
-    camara =
-        jugadora.x-W*.4;
-
-
-    if(camara<0)
-        camara=0;
-
-
-    const max =
-        mundoAncho-W;
-
-
-    if(camara>max)
-        camara=max;
-
-}
-
-
-/* =========================================================
-   FONDO
-========================================================= */
-
-function dibujarFondo(){
-
-    const gradiente =
-        ctx.createLinearGradient(
-            0,
-            0,
-            0,
-            H
-        );
-
-
-    gradiente.addColorStop(
-        0,
-        "#ffd95a"
-    );
-
-    gradiente.addColorStop(
-        .25,
-        "#ffad45"
-    );
-
-    gradiente.addColorStop(
-        .48,
-        "#ef7650"
-    );
-
-    gradiente.addColorStop(
-        .70,
-        "#bb5260"
-    );
-
-    gradiente.addColorStop(
-        1,
-        "#4d4c3d"
-    );
-
-
-    ctx.fillStyle =
-        gradiente;
-
-    ctx.fillRect(
-        0,
-        0,
-        W,
-        H
-    );
-
-
-    /* SOL */
-
-    const solX =
-        W*.73;
-
-    const solY =
-        H*.30;
-
-
-    const brillo =
-        ctx.createRadialGradient(
-            solX,
-            solY,
-            20,
-            solX,
-            solY,
-            180
-        );
-
-
-    brillo.addColorStop(
-        0,
-        "rgba(255,249,190,.95)"
-    );
-
-    brillo.addColorStop(
-        .4,
-        "rgba(255,221,110,.45)"
-    );
-
-    brillo.addColorStop(
-        1,
-        "rgba(255,200,80,0)"
-    );
-
-
-    ctx.fillStyle=brillo;
-
-    ctx.fillRect(
-        solX-180,
-        solY-180,
-        360,
-        360
-    );
-
-
-    ctx.fillStyle =
-        "#fff2a1";
-
-    ctx.beginPath();
-
-    ctx.arc(
-        solX,
-        solY,
-        58,
-        0,
-        Math.PI*2
-    );
-
-    ctx.fill();
-
-
-    /* MONTAÑAS */
-
-    dibujarMontana(
-        50-camara*.12,
-        H-120,
-        500,
-        280
-    );
-
-    dibujarMontana(
-        650-camara*.12,
-        H-120,
-        600,
-        330
-    );
-
-    dibujarMontana(
-        1400-camara*.12,
-        H-120,
-        550,
-        300
-    );
-
-    dibujarMontana(
-        2100-camara*.12,
-        H-120,
-        600,
-        340
-    );
-
-    dibujarMontana(
-        2900-camara*.12,
-        H-120,
-        550,
-        300
-    );
-
-    dibujarMontana(
-        3700-camara*.12,
-        H-120,
-        600,
-        340
-    );
-
-}
-
-
-/* =========================================================
-   MONTAÑAS
-========================================================= */
-
-function dibujarMontana(
-    x,
-    base,
-    ancho,
-    alto
-){
-
-    ctx.fillStyle =
-        "rgba(76,57,68,.43)";
-
-
-    ctx.beginPath();
-
-    ctx.moveTo(
-        x,
-        base
-    );
-
-    ctx.lineTo(
-        x+ancho*.45,
-        base-alto
-    );
-
-    ctx.lineTo(
-        x+ancho*.62,
-        base-alto*.55
-    );
-
-    ctx.lineTo(
-        x+ancho*.78,
-        base-alto*.8
-    );
-
-    ctx.lineTo(
-        x+ancho,
-        base
-    );
-
-    ctx.closePath();
-
-    ctx.fill();
-
-}
-
-
-/* =========================================================
-   SUELO
-========================================================= */
-
-function dibujarSuelo(){
-
-    const sueloY =
-        H-120;
-
-
-    ctx.fillStyle =
-        "#687344";
-
-    ctx.fillRect(
-        0,
-        sueloY,
-        W,
-        120
-    );
-
-
-    ctx.fillStyle =
-        "#92944f";
-
-    ctx.fillRect(
-        0,
-        sueloY,
-        W,
-        9
-    );
-
-
-    ctx.strokeStyle =
-        "#7b8648";
-
-    ctx.lineWidth=3;
-
-
-    for(
-        let x=-20;
-        x<W+20;
-        x+=20
-    ){
-
-        ctx.beginPath();
-
-        ctx.moveTo(
-            x,
-            sueloY
-        );
-
-        ctx.lineTo(
-            x+5,
-            sueloY-10
-        );
-
-        ctx.stroke();
+        mensaje.textContent =
+            "Porque no quería que terminara el día sin darte unas flores amarillas. Quizá sean virtuales, pero llevan una intención muy real: hacerte sonreír.";
 
     }
 
+
+    siguiente(5);
 }
 
 
-/* =========================================================
-   PLATAFORMAS
-========================================================= */
+/* =====================================================
+   PREPARAR REVELACIÓN
+===================================================== */
 
-function dibujarPlataformas(){
+function prepararFlores(){
 
-    for(
-        const p of plataformas
-    ){
-
-        const x =
-            p.x-camara;
-
-        const y =
-            H-120-p.altura;
-
-
-        if(
-            x+p.w<0 ||
-            x>W
-        )
-            continue;
-
-
-        /* madera */
-
-        ctx.fillStyle =
-            "#765238";
-
-        ctx.fillRect(
-            x,
-            y,
-            p.w,
-            p.h
+    const transicion =
+        document.getElementById(
+            "transicion"
         );
 
 
-        /* parte superior */
-
-        ctx.fillStyle =
-            "#9e8b4b";
-
-        ctx.fillRect(
-            x,
-            y,
-            p.w,
-            7
-        );
-
-
-        /* pasto */
-
-        ctx.fillStyle =
-            "#74834a";
-
-        ctx.fillRect(
-            x,
-            y-5,
-            p.w,
-            5
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-   FLORES DIBUJADAS
-========================================================= */
-
-function dibujarFlores(){
-
-    for(
-        const f of floresJuego
-    ){
-
-        if(f.recogida)
-            continue;
-
-
-        const x =
-            f.x-camara;
-
-        const y =
-            obtenerYFlor(f);
-
-
-        if(
-            x<-50 ||
-            x>W+50
-        )
-            continue;
-
-
-        const flotacion =
-            Math.sin(
-                Date.now()/300+f.x
-            )*6;
-
-
-        ctx.font =
-            "38px Arial";
-
-        ctx.textAlign =
-            "center";
-
-
-        ctx.fillText(
-            f.emoji,
-            x+22,
-            y+38+flotacion
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-   CARACOLES
-========================================================= */
-
-function dibujarCaracoles(){
-
-    for(
-        const c of caracoles
-    ){
-
-        const x =
-            c.x-camara;
-
-        const y =
-            H-120-45;
-
-
-        if(
-            x<-60 ||
-            x>W+60
-        )
-            continue;
-
-
-        /* sombra */
-
-        ctx.fillStyle =
-            "rgba(0,0,0,.25)";
-
-
-        ctx.beginPath();
-
-        ctx.ellipse(
-            x+25,
-            y+43,
-            25,
-            6,
-            0,
-            0,
-            Math.PI*2
-        );
-
-        ctx.fill();
-
-
-        /*
-           Caracol grande y visible
-        */
-
-        ctx.font =
-            "46px Arial";
-
-        ctx.textAlign =
-            "center";
-
-        ctx.save();
-
-
-        ctx.translate(
-            x+25,
-            y+25
-        );
-
-
-        if(
-            c.direccion<0
-        ){
-
-            ctx.scale(
-                -1,
-                1
-            );
-
-        }
-
-
-        ctx.fillText(
-            "🐌",
-            0,
-            16
-        );
-
-
-        ctx.restore();
-
-    }
-
-}
-
-
-/* =========================================================
-   CHICA
-========================================================= */
-
-function dibujarJugadora(){
-
-    const x =
-        jugadora.x-camara;
-
-    const y =
-        jugadora.y;
-
-
-    /* sombra */
-
-    ctx.fillStyle =
-        "rgba(0,0,0,.25)";
-
-
-    ctx.beginPath();
-
-    ctx.ellipse(
-        x+21,
-        y+56,
-        20,
-        5,
-        0,
-        0,
-        Math.PI*2
+    transicion.classList.add(
+        "activa"
     );
-
-    ctx.fill();
 
 
     /*
-       Cuerpo de la chica.
-       Se dibuja con formas para evitar
-       que el personaje se vea transparente.
+       Cambiamos lentamente
+       el cielo hacia un tono
+       más nocturno.
     */
 
-
-    /* cabello */
-
-    ctx.fillStyle =
-        "#5b3028";
-
-    ctx.beginPath();
-
-    ctx.arc(
-        x+21,
-        y+15,
-        16,
-        0,
-        Math.PI*2
-    );
-
-    ctx.fill();
-
-
-    /* cara */
-
-    ctx.fillStyle =
-        "#ffd0a8";
-
-    ctx.beginPath();
-
-    ctx.arc(
-        x+21,
-        y+18,
-        11,
-        0,
-        Math.PI*2
-    );
-
-    ctx.fill();
-
-
-    /* cabello lateral */
-
-    ctx.fillStyle =
-        "#5b3028";
-
-    ctx.beginPath();
-
-    ctx.arc(
-        x+12,
-        y+20,
-        7,
-        0,
-        Math.PI*2
-    );
-
-    ctx.fill();
-
-
-    ctx.beginPath();
-
-    ctx.arc(
-        x+30,
-        y+20,
-        7,
-        0,
-        Math.PI*2
-    );
-
-    ctx.fill();
-
-
-    /* vestido */
-
-    ctx.fillStyle =
-        "#e94f73";
-
-    ctx.beginPath();
-
-    ctx.moveTo(
-        x+12,
-        y+29
-    );
-
-    ctx.lineTo(
-        x+30,
-        y+29
-    );
-
-    ctx.lineTo(
-        x+38,
-        y+52
-    );
-
-    ctx.lineTo(
-        x+4,
-        y+52
-    );
-
-    ctx.closePath();
-
-    ctx.fill();
-
-
-    /* brazos */
-
-    ctx.strokeStyle =
-        "#ffd0a8";
-
-    ctx.lineWidth=5;
-
-    ctx.lineCap="round";
-
-
-    ctx.beginPath();
-
-    ctx.moveTo(
-        x+12,
-        y+32
-    );
-
-    ctx.lineTo(
-        x+4,
-        y+43
-    );
-
-    ctx.stroke();
-
-
-    ctx.beginPath();
-
-    ctx.moveTo(
-        x+30,
-        y+32
-    );
-
-    ctx.lineTo(
-        x+38,
-        y+43
-    );
-
-    ctx.stroke();
-
-
-    /* piernas */
-
-    ctx.strokeStyle =
-        "#ffd0a8";
-
-    ctx.lineWidth=5;
-
-
-    ctx.beginPath();
-
-    ctx.moveTo(
-        x+16,
-        y+51
-    );
-
-    ctx.lineTo(
-        x+13,
-        y+57
-    );
-
-    ctx.stroke();
-
-
-    ctx.beginPath();
-
-    ctx.moveTo(
-        x+26,
-        y+51
-    );
-
-    ctx.lineTo(
-        x+29,
-        y+57
-    );
-
-    ctx.stroke();
-
-
-    /* zapatos */
-
-    ctx.strokeStyle =
-        "#3b2930";
-
-    ctx.lineWidth=4;
-
-
-    ctx.beginPath();
-
-    ctx.moveTo(
-        x+10,
-        y+58
-    );
-
-    ctx.lineTo(
-        x+17,
-        y+58
-    );
-
-    ctx.stroke();
-
-
-    ctx.beginPath();
-
-    ctx.moveTo(
-        x+26,
-        y+58
-    );
-
-    ctx.lineTo(
-        x+33,
-        y+58
-    );
-
-    ctx.stroke();
-
-}
-
-
-/* =========================================================
-   META
-========================================================= */
-
-function dibujarMeta(){
-
-    const x =
-        meta.x-camara;
-
-    const sueloY =
-        H-120;
-
-
-    if(
-        x<-100 ||
-        x>W+100
-    )
-        return;
-
-
-    /* poste */
-
-    ctx.fillStyle =
-        "#eeeeee";
-
-    ctx.fillRect(
-        x+20,
-        sueloY-170,
-        7,
-        170
-    );
-
-
-    /* bandera */
-
-    ctx.fillStyle =
-        "#e84364";
-
-    ctx.beginPath();
-
-    ctx.moveTo(
-        x+27,
-        sueloY-165
-    );
-
-    ctx.lineTo(
-        x+80,
-        sueloY-145
-    );
-
-    ctx.lineTo(
-        x+27,
-        sueloY-125
-    );
-
-    ctx.closePath();
-
-    ctx.fill();
-
-
-    ctx.font =
-        "bold 16px Arial";
-
-    ctx.fillStyle =
-        "white";
-
-    ctx.textAlign =
-        "left";
-
-    ctx.fillText(
-        "META",
-        x-5,
-        sueloY-80
-    );
-
-}
-
-
-/* =========================================================
-   DIBUJAR TODO
-========================================================= */
-
-function dibujar(){
-
-    dibujarFondo();
-
-    dibujarSuelo();
-
-    dibujarPlataformas();
-
-    dibujarFlores();
-
-    dibujarCaracoles();
-
-    dibujarMeta();
-
-    dibujarJugadora();
-
-}
-
-
-/* =========================================================
-   MENSAJES
-========================================================= */
-
-function mostrarMensaje(texto){
-
-    const elemento =
-        document.getElementById(
-            "mensaje"
-        );
-
-
-    elemento.textContent =
-        texto;
-
-
-    elemento.classList.add(
-        "visible"
-    );
-
-
-    clearTimeout(
-        mensajeTimer
-    );
-
-
-    mensajeTimer =
-        setTimeout(
-            ()=>{
-                elemento.classList.remove(
-                    "visible"
-                );
-            },
-            2500
-        );
-
-}
-
-
-/* =========================================================
-   META
-========================================================= */
-
-function comprobarMeta(){
-
-    if(
-
-        jugadora.x+jugadora.w >
-        meta.x &&
-
-        jugadora.x <
-        meta.x+meta.w
-
-    ){
-
-        if(
-            flores===7
-        ){
-
-            terminarJuego();
-
-        }
-
-        else{
-
-            mostrarMensaje(
-                "🌻 Primero recoge las 7 flores."
-            );
-
-        }
-
-    }
-
-}
-
-
-/* =========================================================
-   TERMINAR
-========================================================= */
-
-function terminarJuego(){
-
-    jugando=false;
-
     document.getElementById(
-        "final"
-    ).style.display="flex";
-
-    crearPetalos();
-
-}
-
-
-/* =========================================================
-   PÉTALOS
-========================================================= */
-
-function crearPetalos(){
-
-    const simbolos=[
-        "🌸",
-        "🌻",
-        "🌷",
-        "🌼",
-        "🌹"
-    ];
+        "app"
+    ).style.background =
+        `
+        radial-gradient(
+            circle at 50% 25%,
+            rgba(255,244,171,.85),
+            rgba(255,190,80,.35) 18%,
+            transparent 38%
+        ),
+        linear-gradient(
+            to bottom,
+            #e5a54e 0%,
+            #bd6370 45%,
+            #40314f 100%
+        )
+        `;
 
 
-    for(
-        let i=0;
-        i<45;
-        i++
-    ){
+    estrellas.classList.add(
+        "activo"
+    );
 
-        const p =
-            document.createElement(
-                "div"
+
+    setTimeout(()=>{
+
+        transicion.classList.remove(
+            "activa"
+        );
+
+
+        const actual =
+            document.getElementById(
+                "pantalla5"
             );
 
-
-        p.className =
-            "petalo";
-
-
-        p.textContent =
-            simbolos[
-                Math.floor(
-                    Math.random()*
-                    simbolos.length
-                )
-            ];
+        actual.classList.remove(
+            "activa"
+        );
 
 
-        p.style.left =
-            Math.random()*100+"%";
+        setTimeout(()=>{
 
+            document.getElementById(
+                "pantallaFinal"
+            ).classList.add(
+                "activa"
+            );
 
-        p.style.animationDuration =
-            4+Math.random()*5+"s";
+        },300);
 
-
-        p.style.animationDelay =
-            Math.random()*3+"s";
-
-
-        document.getElementById(
-            "final"
-        ).appendChild(p);
-
-    }
+    },1200);
 
 }
 
 
-/* =========================================================
+/* =====================================================
+   BRILLOS ALREDEDOR DE LAS FLORES
+===================================================== */
+
+const ramo =
+    document.querySelector(
+        ".ramo"
+    );
+
+for(let i=0;i<22;i++){
+
+    const brillo =
+        document.createElement(
+            "div"
+        );
+
+    brillo.className =
+        "brillo";
+
+    brillo.style.left =
+        Math.random()*100+"%";
+
+    brillo.style.top =
+        Math.random()*90+"%";
+
+    brillo.style.animationDelay =
+        Math.random()*2+"s";
+
+    ramo.appendChild(
+        brillo
+    );
+}
+
+
+/* =====================================================
    MÚSICA ROMÁNTICA
-========================================================= */
+===================================================== */
 
 let audio=null;
 
-let musicaActiva=false;
-
-let intervaloMusica=null;
+let musicaIniciada=false;
 
 let notaActual=0;
 
+let intervalo=null;
+
 
 /*
-   Melodía romántica suave.
-   Se genera directamente con Web Audio,
-   por lo que no necesita archivos externos.
+   Melodía suave.
+   Se genera con Web Audio,
+   así no necesita archivos externos.
 */
 
-const melodiaRomantica = [
+const notas=[
 
     261.63,
     329.63,
@@ -2401,79 +1876,58 @@ const melodiaRomantica = [
     392.00,
 
     329.63,
+    392.00,
+    493.88,
+    440.00,
+
+    392.00,
+    349.23,
+    329.63,
+    293.66,
+
     261.63,
     329.63,
     392.00,
-
-    493.88,
-    440.00,
-    392.00,
-    329.63,
-
-    293.66,
-    329.63,
-    392.00,
-    440.00,
-
-    392.00,
-    329.63,
-    293.66,
-    261.63
+    329.63
 
 ];
 
 
-/* =========================================================
-   INICIAR MÚSICA
-========================================================= */
-
 function iniciarMusica(){
 
-    if(musicaActiva)
+    if(musicaIniciada)
         return;
 
 
     try{
 
-        if(!audio){
-
-            audio =
-                new(
-                    window.AudioContext ||
-                    window.webkitAudioContext
-                )();
-
-        }
+        audio =
+            new(
+                window.AudioContext ||
+                window.webkitAudioContext
+            );
 
 
         audio.resume();
 
 
-        musicaActiva=true;
+        musicaIniciada=true;
 
 
-        document.getElementById(
-            "music"
-        ).textContent =
-            "🎵 Música ON";
+        tocarNota();
 
 
-        tocarNotaRomantica();
-
-
-        intervaloMusica =
+        intervalo =
             setInterval(
-                tocarNotaRomantica,
-                520
+                tocarNota,
+                650
             );
 
     }
-
-    catch(error){
+    catch(e){
 
         console.log(
-            "Audio no disponible:",
-            error
+            "Audio no disponible"
         );
 
     }
@@ -2481,83 +1935,72 @@ function iniciarMusica(){
 }
 
 
-/* =========================================================
-   NOTA
-========================================================= */
+function tocarNota(){
 
-function tocarNotaRomantica(){
-
-    if(
-        !musicaActiva ||
-        !audio
-    )
+    if(!audio)
         return;
 
 
-    const nota =
-        melodiaRomantica[
-            notaActual
-        ];
+    const frecuencia =
+        notas[notaActual];
 
 
     const ahora =
         audio.currentTime;
 
 
-    /*
-       Nota principal
-    */
-
-    const osc =
+    const oscilador =
         audio.createOscillator();
 
-    const gain =
+    const volumen =
         audio.createGain();
 
 
-    osc.type =
+    oscilador.type =
         "sine";
 
+    oscilador.frequency.value =
+        frecuencia;
 
-    osc.frequency.value =
-        nota;
 
-
-    gain.gain.setValueAtTime(
+    volumen.gain.setValueAtTime(
         .0001,
         ahora
     );
 
 
-    gain.gain.exponentialRampToValueAtTime(
-        .06,
-        ahora+.08
+    volumen.gain.exponentialRampToValueAtTime(
+        .045,
+        ahora+.12
     );
 
 
-    gain.gain.exponentialRampToValueAtTime(
+    volumen.gain.exponentialRampToValueAtTime(
         .0001,
-        ahora+.48
+        ahora+.58
     );
 
 
-    osc.connect(gain);
+    oscilador.connect(
+        volumen
+    );
 
-    gain.connect(
+    volumen.connect(
         audio.destination
     );
 
 
-    osc.start(ahora);
+    oscilador.start(
+        ahora
+    );
 
-    osc.stop(
-        ahora+.5
+    oscilador.stop(
+        ahora+.62
     );
 
 
     /*
-       Segunda nota para darle
-       un sonido más romántico.
+       Acorde suave cada cierto tiempo.
     */
 
     if(
@@ -2567,7 +2010,7 @@ function tocarNotaRomantica(){
         const acorde =
             audio.createOscillator();
 
-        const volumen =
+        const gain =
             audio.createGain();
 
 
@@ -2576,32 +2019,32 @@ function tocarNotaRomantica(){
 
 
         acorde.frequency.value =
-            nota*1.5;
+            frecuencia*1.5;
 
 
-        volumen.gain.setValueAtTime(
+        gain.gain.setValueAtTime(
             .0001,
             ahora
         );
 
 
-        volumen.gain.exponentialRampToValueAtTime(
-            .025,
-            ahora+.1
+        gain.gain.exponentialRampToValueAtTime(
+            .018,
+            ahora+.15
         );
 
 
-        volumen.gain.exponentialRampToValueAtTime(
+        gain.gain.exponentialRampToValueAtTime(
             .0001,
-            ahora+.45
+            ahora+.55
         );
 
 
         acorde.connect(
-            volumen
+            gain
         );
 
-        volumen.connect(
+        gain.connect(
             audio.destination
         );
 
@@ -2611,7 +2054,7 @@ function tocarNotaRomantica(){
         );
 
         acorde.stop(
-            ahora+.48
+            ahora+.58
         );
 
     }
@@ -2621,8 +2064,7 @@ function tocarNotaRomantica(){
 
 
     if(
-        notaActual>=
-        melodiaRomantica.length
+        notaActual>=notas.length
     ){
 
         notaActual=0;
@@ -2632,80 +2074,21 @@ function tocarNotaRomantica(){
 }
 
 
-/* =========================================================
-   APAGAR MÚSICA
-========================================================= */
+/* =====================================================
+   INICIAR AUDIO CON PRIMER CLICK
+===================================================== */
 
-function detenerMusica(){
-
-    musicaActiva=false;
-
-
-    clearInterval(
-        intervaloMusica
-    );
-
-
-    intervaloMusica=null;
-
-
-    document.getElementById(
-        "music"
-    ).textContent =
-        "🔇 Música OFF";
-
-}
-
-
-/* =========================================================
-   BOTÓN MÚSICA
-========================================================= */
-
-function musicaToggle(){
-
-    if(musicaActiva){
-
-        detenerMusica();
-
-    }
-
-    else{
+document.addEventListener(
+    "click",
+    function(){
 
         iniciarMusica();
 
+    },
+    {
+        once:true
     }
-
-}
-
-
-/* =========================================================
-   BUCLE DEL JUEGO
-========================================================= */
-
-function bucle(){
-
-    if(!jugando)
-        return;
-
-
-    actualizarJugadora();
-
-    actualizarCaracoles();
-
-    actualizarFlores();
-
-    actualizarCamara();
-
-    comprobarMeta();
-
-    dibujar();
-
-
-    requestAnimationFrame(
-        bucle
-    );
-
-}
+);
 
 </script>
 
